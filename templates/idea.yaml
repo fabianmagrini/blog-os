@@ -1,0 +1,33 @@
+# Copy to ideas/backlog.yaml entries (or ideas/shortlisted/idea-XXX.yaml
+# once selected) and fill in.
+id: idea-XXX
+
+working_title:
+
+question:
+
+hypothesis:
+
+why_now:
+
+target_reader:
+
+potential_argument:
+
+supporting_signals: []
+
+counterargument:
+
+author_experience_required:
+
+originality_score:
+
+scores:
+  relevance:        # 1-5, weight 20%
+  originality:       # 1-5, weight 20%
+  author_expertise:   # 1-5, weight 20%
+  reader_value:       # 1-5, weight 15%
+  evidence:           # 1-5, weight 15%
+  timeliness:         # 1-5, weight 10%
+
+status: backlog | shortlisted | selected | rejected

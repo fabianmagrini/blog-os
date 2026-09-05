@@ -1,0 +1,25 @@
+# Copy to signals/inbox/signal-YYYY-MM-DD-NNN.yaml and fill in.
+id: signal-YYYY-MM-DD-001
+
+title:
+
+date:
+
+source:
+  name:
+  url:
+  type: # github | arxiv | engineering-blog | newsletter | documentation |
+        # conference-talk | hacker-news | standard | paper |
+        # product-announcement | architecture-discussion
+
+themes: [] # from config/themes.md
+
+summary:
+
+why_it_matters:
+
+potential_angles: []
+
+related_signals: []
+
+confidence: high | medium | low

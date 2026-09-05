@@ -1,0 +1,26 @@
+id: agent-harnesses
+
+title: The Agent Harness Is Becoming More Important Than the Model
+
+status: thesis
+
+created: 2026-09-05
+
+target_publish_date: 2026-09-30
+
+themes:
+  - ai-native-engineering
+  - agentic-engineering
+  - agent-harnesses
+  - developer-platforms
+
+audience:
+  - principal-engineers
+  - architects
+  - engineering-leaders
+
+word_count_target: 2200
+
+thesis_approved: false
+
+publication_approved: false

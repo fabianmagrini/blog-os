@@ -1,0 +1,42 @@
+# Idea backlog. Each entry follows templates/idea.yaml.
+# status: backlog | shortlisted | selected | rejected
+#
+# This starts with one worked example (idea-001) so the pipeline has
+# something to run end-to-end. Add real ideas above or below it as the
+# Scout/Editor agents (agents/scout.md, agents/editor.md) produce them.
+
+- id: idea-001
+  working_title: "The Agent Harness Is Becoming More Important Than the Model"
+  question: >
+    As frontier model capability converges across vendors, what determines
+    whether an AI coding agent is actually reliable in production use?
+  hypothesis: >
+    Harness design — context management, tool scoping, permission gating,
+    and workflow structure — is becoming a bigger driver of agent
+    reliability than which underlying model is used.
+  why_now: >
+    Multiple frontier models have reached roughly comparable raw capability
+    on coding benchmarks, while real-world reliability of agent products
+    built on them still varies widely.
+  target_reader: principal engineers, architects, engineering leaders
+  potential_argument: >
+    If capability is converging, the remaining differentiation moves to the
+    harness: context strategy, tool design, guardrails, and workflow
+    structure.
+  supporting_signals: []
+  counterargument: >
+    Model capability gaps are still large enough on specific hard tasks
+    (long-horizon planning, novel algorithm design) that harness quality
+    cannot fully compensate for a weaker underlying model.
+  author_experience_required: >
+    Direct experience operating agent harnesses in production engineering
+    workflows, and comparing outcomes across underlying models.
+  originality_score: 4
+  scores:
+    relevance: 5
+    originality: 4
+    author_expertise: 5
+    reader_value: 5
+    evidence: 4
+    timeliness: 5
+  status: selected
