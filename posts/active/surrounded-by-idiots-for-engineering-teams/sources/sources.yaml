@@ -1,0 +1,93 @@
+- id: S1
+  title: Surrounded by Idiots
+  author: Wikipedia contributors
+  publisher: Wikipedia
+  date: accessed 2026-09-05
+  url: https://en.wikipedia.org/wiki/Surrounded_by_Idiots
+  source_type: analysis
+  primary_source: false
+  relevance: high
+  credibility: medium
+  claims_supported: ["Claim 1", "Claim 3", "Claim 5"]
+  notes: >
+    Tertiary source (encyclopedia entry). Used for book publication facts,
+    the Umeå University psychologist criticism, the "Fraudster of the Year"
+    award, and sales/translation figures. These are checkable factual
+    claims about the book's reception, not claims requiring peer-reviewed
+    sourcing themselves — but the "Fraudster of the Year" award and named
+    critic should be double-checked against a primary news report before
+    being stated as fact in the published article, since this was not
+    independently cross-verified against a second source in this pass.
+
+- id: S2
+  title: DISC assessment
+  author: Wikipedia contributors
+  publisher: Wikipedia
+  date: accessed 2026-09-05
+  url: https://en.wikipedia.org/wiki/DISC_assessment
+  source_type: analysis
+  primary_source: false
+  relevance: high
+  credibility: medium
+  claims_supported: ["Claim 1", "Claim 2"]
+  notes: >
+    Tertiary source. Cites a Scandinavian Journal of Psychology study
+    (DISC dimensions reducible to Big Five) and psychologist Wendell
+    Williams's criticism at one remove — the primary paper was not
+    independently located/read in this pass. If this specific claim is
+    used prominently in the article, locate and cite the primary paper
+    directly rather than relying on this secondary summary.
+
+- id: S3
+  title: "Emotions of Normal People (DISC theory origin)"
+  author: William Moulton Marston
+  publisher: Kegan Paul, Trench, Trubner & Co.
+  date: "1928"
+  url: ""
+  source_type: analysis
+  primary_source: true
+  relevance: medium
+  credibility: medium
+  claims_supported: ["Claim 1"]
+  notes: >
+    Not directly located/read in this research pass — its existence and
+    content are cited via [S2]. Listed here because it is the actual
+    primary source for DISC's origin; should be sourced directly (a
+    library/archive copy or reputable academic summary) before the article
+    states specifics about its content beyond "DISC traces to this 1928
+    book."
+
+- id: S4
+  title: DISC Assessment
+  author: Encyclopedia MDPI contributors
+  publisher: MDPI Encyclopedia
+  date: accessed 2026-09-05
+  url: https://encyclopedia.pub/entry/33214
+  source_type: analysis
+  primary_source: false
+  relevance: medium
+  credibility: medium
+  claims_supported: ["Claim 2"]
+  notes: >
+    Used for test-retest reliability coefficients (.71-.89 across
+    one-week to one-year retest intervals). Secondary encyclopedia
+    synthesis, not a primary psychometric study.
+
+- id: S5
+  title: "Understand team effectiveness (Project Aristotle)"
+  author: Google re:Work
+  publisher: Google
+  date: accessed 2026-09-05
+  url: https://rework.withgoogle.com/intl/en/guides/understand-team-effectiveness
+  source_type: documentation
+  primary_source: true
+  relevance: high
+  credibility: high
+  claims_supported: ["Claim 4"]
+  notes: >
+    Google's own account of its research (180 teams, hundreds of
+    interviews, 250+ survey items). Highest-credibility source in this
+    dossier — official documentation from the organization that ran the
+    study. Used as a validated point of comparison, not as direct proof of
+    the thesis's narrower shared-vocabulary claim (see Claim 4's contrary
+    evidence).
