@@ -1,0 +1,26 @@
+# OS cruft
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# Secrets / local env
+.env
+.env.*
+!.env.example
+
+# Future CLI/automation (scripts/, Phase 2)
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+dist/
+build/
+
+# Logs and local scratch
+*.log
+.DS_Store
+tmp/
