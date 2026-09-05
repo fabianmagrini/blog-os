@@ -1,0 +1,50 @@
+id: signal-2026-09-05-001
+
+title: "Anthropic formalizes 'context engineering' as the successor to prompt engineering for agents"
+
+date: 2025-09-29
+
+source:
+  name: Anthropic Applied AI team
+  url: https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents
+  type: engineering-blog
+
+themes:
+  - agent-harnesses
+  - ai-native-software-engineering
+  - agentic-engineering
+
+summary: >
+  Anthropic's applied AI team published a post arguing that "context
+  engineering" — curating and maintaining the optimal set of tokens during
+  inference across an entire multi-turn agent session (system instructions,
+  tools, MCP, external data, message history) — is the natural successor to
+  single-turn prompt engineering. It names four concrete techniques:
+  compaction (summarizing history to fit the context window while
+  preserving key decisions), structured note-taking (persistent external
+  memory files like NOTES.md so state survives outside the active context),
+  sub-agent architectures (specialized agents doing focused work and
+  returning condensed summaries to a coordinator), and just-in-time
+  retrieval (fetching data via tools at runtime instead of preloading it).
+
+why_it_matters: >
+  This is a primary source, from a frontier model lab's own applied team,
+  describing concrete harness-design techniques (not model changes) that
+  are presented as the main lever for agent reliability at scale. It is
+  direct supporting evidence for the claim that harness/context design,
+  not model choice, is what determines whether an agent behaves reliably
+  in a real multi-step task — the same claim idea-001 / the agent-harnesses
+  thesis is built on.
+
+potential_angles:
+  - "Compare these four techniques (compaction, note-taking, sub-agents,
+     just-in-time retrieval) against real harness implementations to see
+     which are actually load-bearing in practice vs. which are described
+     but rarely implemented well."
+  - "Use this as the primary citation for Argument 1/2 of the
+     agent-harnesses thesis (posts/active/agent-harnesses/thesis.md),
+     rather than the currently-unsourced general claim."
+
+related_signals: []
+
+confidence: high

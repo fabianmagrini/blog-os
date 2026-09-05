@@ -23,7 +23,8 @@
     If capability is converging, the remaining differentiation moves to the
     harness: context strategy, tool design, guardrails, and workflow
     structure.
-  supporting_signals: []
+  supporting_signals:
+    - signal-2026-09-05-001
   counterargument: >
     Model capability gaps are still large enough on specific hard tasks
     (long-horizon planning, novel algorithm design) that harness quality
