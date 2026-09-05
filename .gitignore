@@ -22,5 +22,4 @@ build/
 
 # Logs and local scratch
 *.log
-.DS_Store
 tmp/
