@@ -41,3 +41,51 @@
     evidence: 4
     timeliness: 5
   status: shortlisted
+
+- id: idea-002
+  working_title: >
+    What "Surrounded by Idiots" Gets Right (and Wrong) About Communicating
+    on an Engineering Team
+  question: >
+    Does the DISC-based four-color communication framework popularized by
+    Thomas Erikson's "Surrounded by Idiots" hold up as a practical tool for
+    day-to-day communication on software engineering teams?
+  hypothesis: >
+    The book's framework rests on weak psychometric science, but its
+    practical heuristics map cleanly onto recurring friction points in
+    engineering work (code review tone, incident communication, standups,
+    cross-team negotiation) — and are worth adapting deliberately, with the
+    scientific caveat stated up front rather than glossed over.
+  why_now: >
+    Communication friction is a recurring root cause in engineering
+    retros and 360 reviews, and pop-psychology personality frameworks keep
+    resurfacing in team offsites and 1:1s. Technical readers are typically
+    given either uncritical enthusiasm or blanket dismissal of these tools —
+    rarely a rigorous middle path.
+  target_reader: engineering managers, staff/principal engineers, team leads
+  potential_argument: >
+    Translate the book's four communication archetypes into specific
+    engineering scenarios (giving code review feedback, running an incident
+    retro, disagreeing in a design review) with concrete adaptation
+    strategies, while being explicit that this is a practical heuristic, not
+    a validated psychological instrument.
+  supporting_signals: []
+  counterargument: >
+    DISC-style four-quadrant personality models have weak empirical support
+    in psychology (poor test-retest reliability, weak predictive validity),
+    oversimplify individuals into fixed types, and are easily misused to
+    stereotype or dismiss a colleague ("that's just a red") instead of
+    actually listening to them.
+  author_experience_required: >
+    A real instance of applying (or watching a teammate apply) a
+    communication-style adaptation on an actual engineering team, and what
+    changed as a result.
+  originality_score: 3
+  scores:
+    relevance: 4
+    originality: 3
+    author_expertise: 4
+    reader_value: 4
+    evidence: 3
+    timeliness: 3
+  status: selected
