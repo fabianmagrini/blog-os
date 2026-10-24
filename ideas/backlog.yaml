@@ -131,4 +131,4 @@
     reader_value: 4
     evidence: 3  # Goose evidence is self-reported; Rust/Zig facts still need sourcing
     timeliness: 5
-  status: selected
+  status: shortlisted
