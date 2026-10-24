@@ -1,0 +1,26 @@
+id: goose-zig-rust-choosing
+
+title: >
+  Goose, Zig, or Rust: Choosing a Systems Language When One of the Options
+  Is Weeks Old
+
+status: thesis
+
+created: 2026-10-25
+
+target_publish_date: 2026-11-25
+
+themes:
+  - software-architecture
+  - emerging-developer-tools
+
+audience:
+  - principal-engineers
+  - architects
+  - engineering-leaders
+
+word_count_target: 2200
+
+thesis_approved: false
+
+publication_approved: false

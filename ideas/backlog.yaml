@@ -89,3 +89,46 @@
     evidence: 3
     timeliness: 3
   status: shortlisted
+
+- id: idea-003
+  working_title: "Goose, Zig, or Rust: Choosing a Systems Language When One of the Options Is Weeks Old"
+  question: >
+    How should an engineering team choose between Rust, Zig, and the new
+    Goose language for a new project, when one option is mature, one is
+    established but pre-stable (to verify), and one is brand new with
+    self-reported performance claims?
+  hypothesis: >
+    The decision turns less on peak performance or the memory-safety
+    mechanism than on maturity risk, ecosystem, and which constraints the
+    project can live with. Goose is not yet a production candidate but is
+    worth tracking for what it shows about safety without lifetime
+    annotations.
+  why_now: >
+    Goose appeared recently with strong benchmark claims against safe Rust,
+    and was built almost entirely with AI from a human design. Teams will be
+    asked "should we look at this?" before any independent evidence exists.
+  target_reader: staff/principal engineers, architects, engineering leaders choosing a stack
+  potential_argument: >
+    Offer a decision framework (workload fit, safety guarantees, maturity
+    and bus-factor risk, ecosystem and hiring, interop with C) and apply it
+    to all three, stating what evidence would move Goose from "watch" to
+    "pilot".
+  supporting_signals:
+    - signal-2026-10-25-001
+  counterargument: >
+    Dismissing a young language on maturity alone is how teams miss real
+    shifts; removing lifetime annotations may remove Rust's largest adoption
+    cost, and the benchmark and safety claims, if they hold, would matter.
+  author_experience_required: >
+    Hands-on experience shipping with Rust and/or Zig, and ideally a real
+    stack-selection decision and its consequences. Not yet known; to be
+    confirmed with the author.
+  originality_score: 3
+  scores:
+    relevance: 4
+    originality: 3
+    author_expertise: 3  # unconfirmed: author's Rust/Zig experience unknown
+    reader_value: 4
+    evidence: 3  # Goose evidence is self-reported; Rust/Zig facts still need sourcing
+    timeliness: 5
+  status: selected

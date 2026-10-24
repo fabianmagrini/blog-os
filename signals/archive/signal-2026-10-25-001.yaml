@@ -1,0 +1,44 @@
+id: signal-2026-10-25-001
+
+title: "Goose: a new memory-safe systems language with no heap, GC, or lifetime annotations"
+
+date: 2026-10-25  # capture date; the HN thread is roughly five weeks old, exact post date not shown
+
+source:
+  name: Goose project page (Wouter van Oortmerssen)
+  url: https://aardappel.github.io/goose/
+  type: documentation
+
+themes:
+  - software-architecture
+  - emerging-developer-tools
+  - ai-native-software-engineering
+
+summary: >
+  Goose is a new, experimental, memory-safe systems language by Wouter van
+  Oortmerssen (creator of Lobster). Instead of a heap or GC it places
+  dynamic values on compiler-managed data stacks and frees them at scope
+  exit; the compiler infers each reference's "root" and rejects references
+  that could outlive their owner, with no unsafe keyword and no lifetime
+  syntax. It compiles whole programs to a single C file. Apache-2.0. The
+  author reports 16 benchmarks at roughly 1.12x the speed of the best safe
+  Rust and 1.16x hand-optimized C++ (self-reported; the page's intro and
+  table figures differ without explanation). Stated limitations include no
+  escaping closures, no dynamic dispatch beyond ADT tags, and whole-program
+  compilation only. The author states the repository was produced almost
+  entirely with AI from a human language design.
+
+why_it_matters: >
+  It stakes out a third memory-safety point alongside Rust's lifetimes and
+  Zig's explicit allocators, and it is a visible example of an AI-built
+  language implementation. It is also a test of how an engineering team
+  should treat a very new language that makes strong, self-reported claims.
+
+potential_angles:
+  - "A decision framework for picking Goose, Zig, or Rust: which constraints (maturity, ecosystem, safety guarantees, hiring) actually decide it."
+  - "What a team should require before a new language's benchmark claims influence a technology choice."
+  - "What an AI-built compiler changes, if anything, about the risk of adopting a young language."
+
+related_signals: []
+
+confidence: medium  # primary source is the author's own page; benchmark claims unverified, and HN commenters dispute the "no heap" framing
