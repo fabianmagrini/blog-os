@@ -1,0 +1,114 @@
+- id: S1
+  title: The Goose Programming Language
+  author: Wouter van Oortmerssen
+  publisher: aardappel.github.io
+  date: accessed 2026-10-25
+  url: https://aardappel.github.io/goose/
+  source_type: documentation
+  primary_source: true
+  relevance: high
+  credibility: medium
+  claims_supported: ["Claim 4", "Claim 5"]
+  notes: >
+    Primary for what Goose is and claims; not independent for performance or
+    safety. Intro and table benchmark figures differ without explanation.
+
+- id: S2
+  title: Goose Programming Language (discussion)
+  author: Hacker News commenters
+  publisher: Hacker News
+  date: accessed 2026-10-25
+  url: https://news.ycombinator.com/item?id=49748954
+  source_type: analysis
+  primary_source: false
+  relevance: medium
+  credibility: low
+  claims_supported: ["Claim 4"]
+  notes: >
+    Community opinion, useful for the shape of the objections, not evidence
+    that they are correct. About 69 comments at time of reading.
+
+- id: S3
+  title: What Is Ownership? (The Rust Programming Language)
+  author: Rust project
+  publisher: doc.rust-lang.org
+  date: accessed 2026-10-25
+  url: https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html
+  source_type: documentation
+  primary_source: true
+  relevance: high
+  credibility: high
+  claims_supported: ["Claim 1"]
+  notes: Official documentation. "No runtime cost" is the book's own claim.
+
+- id: S4
+  title: Validating References with Lifetimes (The Rust Programming Language)
+  author: Rust project
+  publisher: doc.rust-lang.org
+  date: accessed 2026-10-25
+  url: https://doc.rust-lang.org/book/ch10-03-lifetime-syntax.html
+  source_type: documentation
+  primary_source: true
+  relevance: high
+  credibility: high
+  claims_supported: ["Claim 1", "Claim 5"]
+  notes: States lifetimes are mostly inferred and annotations describe relationships.
+
+- id: S5
+  title: Zig Language Overview
+  author: Zig Software Foundation
+  publisher: ziglang.org
+  date: accessed 2026-10-25
+  url: https://ziglang.org/learn/overview/
+  source_type: documentation
+  primary_source: true
+  relevance: high
+  credibility: high
+  claims_supported: ["Claim 2"]
+  notes: >
+    Page does not claim memory safety in general; that reading is an
+    inference from what it says and omits.
+
+- id: S6
+  title: Zig Downloads
+  author: Zig Software Foundation
+  publisher: ziglang.org
+  date: accessed 2026-10-25
+  url: https://ziglang.org/download/
+  source_type: documentation
+  primary_source: true
+  relevance: medium
+  credibility: high
+  claims_supported: ["Claim 3"]
+  notes: Latest stable 0.17.0 (2026-10-01). Re-check at publication time.
+
+- id: S7
+  title: Stack Overflow Developer Survey 2025, Technology
+  author: Stack Overflow
+  publisher: Stack Overflow
+  date: "2025"
+  url: https://survey.stackoverflow.co/2025/technology/
+  source_type: analysis
+  primary_source: true
+  relevance: medium
+  credibility: medium
+  claims_supported: ["Claim 6"]
+  notes: >
+    Usage figures read from the page. Admiration figures (72% Rust, 64% Zig)
+    came from a search summary and are unverified. Self-selected sample.
+
+- id: S8
+  title: aardappel/goose
+  author: RationalStuff
+  publisher: rationalstuff.com
+  date: accessed 2026-10-25
+  url: https://rationalstuff.com/repos/aardappel--goose
+  source_type: analysis
+  primary_source: false
+  relevance: low
+  credibility: low
+  claims_supported: ["Claim 4"]
+  notes: >
+    Third-party repo directory; source of the August 2026 creation and "no
+    releases" details, seen only via search summary. Verify on GitHub before
+    stating.
