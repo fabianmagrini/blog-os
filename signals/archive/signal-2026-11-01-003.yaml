@@ -1,0 +1,25 @@
+id: signal-2026-11-01-003
+title: "MoonBit's SeekMoon: an Agent Development Environment over a conventional language"
+date: 2026-09-01  # publication date of the post
+source:
+  name: MoonBit blog, "From IDE to ADE"
+  url: https://www.moonbitlang.com/blog/seekmoon-from-ide-to-ade
+  type: engineering-blog
+themes: [agentic-engineering, emerging-developer-tools, developer-productivity]
+summary: >
+  SeekMoon (core written in MoonBit, open source at moonbitlang/openseek)
+  is an "Agent Development Environment": the developer sets a goal, an agent
+  implements it, and the developer reviews and decides. It adds syntax-tree
+  search with placeholders (example: a pattern for `@test.assert_eq` with
+  `true` found 43 matches in the `core` project), results that can be added
+  to agent context, and Diff Review with line, token and syntax-tree views
+  plus go-to-definition and find-references. A task is complete only when the
+  developer understands and accepts the code. Features are described as
+  currently provided.
+why_it_matters: >
+  It keeps ordinary source as the artifact and puts the structure in the
+  tooling and review layer, the counter-position to Zero.
+potential_angles:
+  - "Is structure in the tooling enough, or does the representation have to change?"
+related_signals: [signal-2026-11-01-001, signal-2026-11-01-002]
+confidence: medium  # vendor's own post; no independent measurement

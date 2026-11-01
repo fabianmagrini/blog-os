@@ -1,0 +1,26 @@
+id: signal-2026-11-01-001
+title: "Zero: a graph-native language where the semantic graph, not text, is the program"
+date: 2026-11-01  # capture date
+source:
+  name: Zero docs, Graph Architecture (vercel-labs/zerolang)
+  url: https://zerolang.ai/concepts/graph-architecture
+  type: documentation
+themes: [agentic-engineering, emerging-developer-tools, agent-harnesses]
+summary: >
+  Zero states that "the graph is the program database": declarations, types,
+  calls, imports, capabilities and source-map facts live in a semantic graph
+  that agents edit directly via `zero patch`. Patches target graph nodes with
+  an expected value and an --expect-graph-hash stale-state guard, and are
+  validated (required edges, ordered children, node kinds, type facts) before
+  becoming compiler input. `.0` text files are formatting-normalized review
+  projections; `zero import` rebuilds the graph from reviewed text and
+  `zero verify-projection` detects drift. The page gives no version, license
+  or maintainers, and does not use the word "transactional".
+why_it_matters: >
+  It is the clearest attempt to make text a view rather than the source of
+  truth for agent-written code, and it tests whether checked structural
+  patches beat text diffs.
+potential_angles:
+  - "Which of Zero's guarantees (stale-state guard, shape validation) could be reproduced over an existing language's compiler API?"
+related_signals: [signal-2026-11-01-002, signal-2026-11-01-003]
+confidence: medium  # primary source, but maturity and implemented-vs-planned status unstated

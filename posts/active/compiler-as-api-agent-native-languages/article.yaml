@@ -1,0 +1,28 @@
+id: compiler-as-api-agent-native-languages
+
+title: >
+  The Compiler as an API: What Zero, BAML and MoonBit Say About Languages for
+  Coding Agents
+
+status: thesis
+
+created: 2026-11-01
+
+target_publish_date: 2026-12-01
+
+themes:
+  - agentic-engineering
+  - emerging-developer-tools
+  - agent-harnesses
+  - software-architecture
+
+audience:
+  - architects
+  - principal-engineers
+  - engineering-leaders
+
+word_count_target: 3000
+
+thesis_approved: false
+
+publication_approved: false

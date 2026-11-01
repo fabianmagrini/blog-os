@@ -1,0 +1,26 @@
+id: signal-2026-11-01-002
+title: "BAML canary: from a DSL for typed LLM calls toward 'the programming language for agents'"
+date: 2026-11-01  # capture date
+source:
+  name: BAML docs and canary README (BoundaryML)
+  url: https://github.com/BoundaryML/baml/blob/canary/README.md
+  type: repository
+themes: [agentic-engineering, emerging-developer-tools, ai-native-software-engineering]
+summary: >
+  The main docs (https://developer.boundaryml.com/baml) describe BAML as a
+  language for typed functions that call models, with CLI execution and
+  generated SDKs (TypeScript listed). The canary README goes further,
+  calling it "the programming language for agents": TypeScript-like syntax, a
+  Rust-like type system, runtime-persistent types with no `any`, typed
+  statically-analyzed errors, filesystem-defined modules, green threads, a
+  built-in tests/eval framework, an agent standard library, and incremental
+  adoption by calling BAML from TypeScript, Python, Go, C# and Java. The
+  README states features in the present tense, gives no stability caveats,
+  and makes performance claims (compiles faster than Go) without benchmarks.
+why_it_matters: >
+  It tests whether AI-call semantics belong in a language or in libraries
+  plus a harness.
+potential_angles:
+  - "BAML vs TypeScript with mature AI libraries: what does a language add?"
+related_signals: [signal-2026-11-01-001, signal-2026-11-01-003]
+confidence: low  # implemented-vs-planned and canary status cannot be established from these pages
