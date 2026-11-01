@@ -4,7 +4,7 @@ title: >
   The Compiler as an API: What Zero, BAML and MoonBit Say About Languages for
   Coding Agents
 
-status: thesis
+status: research
 
 created: 2026-11-01
 
@@ -23,6 +23,6 @@ audience:
 
 word_count_target: 3000
 
-thesis_approved: false
+thesis_approved: true
 
 publication_approved: false

@@ -1,0 +1,132 @@
+- id: S1
+  title: Zero, Graph Architecture
+  author: Zero project
+  publisher: zerolang.ai
+  date: accessed 2026-11-01
+  url: https://zerolang.ai/concepts/graph-architecture
+  source_type: documentation
+  primary_source: true
+  relevance: high
+  credibility: medium
+  claims_supported: ["Claim 1", "Claim 2"]
+  notes: No version, license or maintainers on the page; does not use "transactional".
+- id: S2
+  title: vercel-labs/zerolang
+  author: Vercel Labs
+  publisher: GitHub
+  date: accessed 2026-11-01
+  url: https://github.com/vercel-labs/zerolang
+  source_type: repository
+  primary_source: true
+  relevance: high
+  credibility: medium
+  claims_supported: ["Claim 1", "Claim 2"]
+  notes: Apache-2.0; marked experimental; no version shown; patch atomicity undocumented.
+- id: S3
+  title: BAML Language Documentation
+  author: BoundaryML
+  publisher: developer.boundaryml.com
+  date: accessed 2026-11-01
+  url: https://developer.boundaryml.com/baml
+  source_type: documentation
+  primary_source: true
+  relevance: high
+  credibility: medium
+  claims_supported: ["Claim 3"]
+  notes: Describes typed model functions; no general-purpose claim, no stability labels.
+- id: S4
+  title: BAML canary README
+  author: BoundaryML
+  publisher: GitHub
+  date: accessed 2026-11-01
+  url: https://github.com/BoundaryML/baml/blob/canary/README.md
+  source_type: repository
+  primary_source: true
+  relevance: high
+  credibility: low
+  claims_supported: ["Claim 3"]
+  notes: Aspirational present-tense claims, no benchmarks, no maturity caveats.
+- id: S5
+  title: BoundaryML/baml
+  author: BoundaryML
+  publisher: GitHub
+  date: accessed 2026-11-01
+  url: https://github.com/BoundaryML/baml
+  source_type: repository
+  primary_source: true
+  relevance: medium
+  credibility: medium
+  claims_supported: ["Claim 3"]
+  notes: Apache-2.0; no releases shown; baml_language directory status unknown.
+- id: S6
+  title: "SeekMoon: from IDE to ADE"
+  author: MoonBit team
+  publisher: moonbitlang.com
+  date: "2026-09-01"
+  url: https://www.moonbitlang.com/blog/seekmoon-from-ide-to-ade
+  source_type: engineering-blog
+  primary_source: true
+  relevance: high
+  credibility: medium
+  claims_supported: ["Claim 4"]
+  notes: Vendor post; features not confirmed in the linked repository.
+- id: S7
+  title: moonbitlang/openseek
+  author: MoonBit
+  publisher: GitHub
+  date: accessed 2026-11-01
+  url: https://github.com/moonbitlang/openseek
+  source_type: repository
+  primary_source: true
+  relevance: high
+  credibility: medium
+  claims_supported: ["Claim 4"]
+  notes: Apache-2.0; README does not mention SeekMoon, structural search or diff review.
+- id: S8
+  title: Language Server Protocol Specification 3.17
+  author: Microsoft
+  publisher: microsoft.github.io
+  date: accessed 2026-11-01
+  url: https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/
+  source_type: standard
+  primary_source: true
+  relevance: high
+  credibility: high
+  claims_supported: ["Claim 5"]
+  notes: Only the first ~100k of ~406k characters read; rename/call hierarchy definitions not read.
+- id: S9
+  title: Aider edit formats / GPT code editing benchmarks
+  author: Aider
+  publisher: aider.chat
+  date: accessed 2026-11-01
+  url: https://aider.chat/docs/more/edit-formats.html
+  source_type: documentation
+  primary_source: true
+  relevance: medium
+  credibility: medium
+  claims_supported: ["Claim 6"]
+  notes: Seen via a search summary only; benchmark findings are from the GPT-3.5/4 era. Read the pages before citing.
+- id: S10
+  title: "Diff-XYZ: A Benchmark for Evaluating Diff Understanding"
+  author: Glukhov, Conti, Bogomolov, Golubev, Bezzubov
+  publisher: arXiv
+  date: "2025-10-14 (v2 2025-11-17)"
+  url: https://arxiv.org/abs/2510.12487
+  source_type: paper
+  primary_source: true
+  relevance: medium
+  credibility: high
+  claims_supported: ["Claim 6"]
+  notes: Abstract only; models and variants not read. Benchmarks diff understanding, not whole agent task success.
+- id: S11
+  title: Using the Language Service API (TypeScript wiki)
+  author: Microsoft
+  publisher: GitHub
+  date: accessed 2026-11-01
+  url: https://github.com/microsoft/TypeScript/wiki/Using-the-Language-Service-API
+  source_type: documentation
+  primary_source: true
+  relevance: medium
+  credibility: medium
+  claims_supported: ["Claim 5"]
+  notes: Thin page; does not cover refactors or edit objects. Find the API reference.
