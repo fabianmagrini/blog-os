@@ -270,3 +270,150 @@
     Read for SeekMoon leads; none found. Covers tests, snapshot and property
     tests, `moon prove`, script mode, sandboxing and wasm. Not read for its
     own claims; vendor post.
+
+- id: S22
+  title: Zero documentation (home, getting started, install, learn, CLI, primitives, standard library, examples)
+  author: Zero project (Vercel Labs)
+  publisher: zerolang.ai
+  date: accessed 2026-11-07
+  url: https://zerolang.ai/
+  source_type: documentation
+  primary_source: true
+  relevance: high
+  credibility: medium
+  claims_supported: ["Claim 2", "Claim 10"]
+  notes: >
+    Also https://zerolang.ai/getting-started, /install, /learn, /cli,
+    /primitives, /standard-library, /examples. Some multi-line code blocks
+    lost whitespace in the fetch; re-copy from the live page. patch results
+    are narrated, not captured. /testing, /reference and /diagnostics not read.
+
+- id: S23
+  title: BAML developer documentation (get started, book chapters, language reference, TypeScript bridge, examples)
+  author: BoundaryML
+  publisher: developer.boundaryml.com
+  date: accessed 2026-11-07
+  url: https://developer.boundaryml.com/baml
+  source_type: documentation
+  primary_source: true
+  relevance: high
+  credibility: medium
+  claims_supported: ["Claim 3", "Claim 11"]
+  notes: >
+    Pages read include /baml/get-started, /baml/book/errors,
+    /baml/book/concurrency, /baml/book/interfaces,
+    /baml/book/common-programming-concepts, /baml/language/functions,
+    /baml/bridges/typescript, /examples/classify-support-tickets. All guides
+    use Canary. Re-copy code from the live pages before publication.
+
+- id: S24
+  title: BAML CLI and standard packages catalog
+  author: BoundaryML
+  publisher: developer.boundaryml.com
+  date: "v0.25.2 canary, published 2026-11-06"
+  url: https://developer.boundaryml.com/cli
+  source_type: documentation
+  primary_source: true
+  relevance: high
+  credibility: medium
+  claims_supported: ["Claim 3", "Claim 11"]
+  notes: >
+    States "No stable release has been published in this catalog." Also
+    /baml/packages, /cli/v0.25.2/commands/test, /baml/book (index; several
+    chapters unpublished). Minor date mismatch with the blog for 0.23.0.
+
+- id: S25
+  title: BAML 0.23.0 release notes
+  author: BoundaryML
+  publisher: boundaryml.com
+  date: "2026-10-25"
+  url: https://boundaryml.com/blog/baml-0.23.0
+  source_type: engineering-blog
+  primary_source: true
+  relevance: low
+  credibility: medium
+  claims_supported: ["Claim 11"]
+  notes: Source of the class-as-return-type snippet; no release note found for 0.24 or 0.25.
+
+- id: S26
+  title: BAML v0 README
+  author: BoundaryML
+  publisher: GitHub
+  date: accessed 2026-11-07
+  url: https://github.com/BoundaryML/baml/blob/canary/README.v0.md
+  source_type: repository
+  primary_source: true
+  relevance: medium
+  credibility: low
+  claims_supported: ["Claim 3"]
+  notes: Describes the older language and says it is stable and used in production; undated; relationship to the new language is not explained.
+
+- id: S27
+  title: MoonBit documentation (index, language, toolchain, moon ide, script mode, download)
+  author: MoonBit team (IDEA)
+  publisher: docs.moonbitlang.com
+  date: accessed 2026-11-07
+  url: https://docs.moonbitlang.com/
+  source_type: documentation
+  primary_source: true
+  relevance: high
+  credibility: medium
+  claims_supported: ["Claim 4", "Claim 12"]
+  notes: >
+    Also /en/latest/toolchain/moonide/index.html,
+    /en/latest/toolchain/moon/script-mode.html,
+    /en/latest/toolchain/moon/commands.html, and
+    https://www.moonbitlang.com/download/. No `moon prove` page found. Performance
+    claims are the vendor's own.
+
+- id: S28
+  title: MoonBit Tour
+  author: MoonBit team
+  publisher: tour.moonbitlang.com
+  date: accessed 2026-11-07
+  url: https://tour.moonbitlang.com/
+  source_type: documentation
+  primary_source: true
+  relevance: high
+  credibility: medium
+  claims_supported: ["Claim 12"]
+  notes: Lessons read - variables, struct, enum, test, patterns. Uses pre-0.10.19 derive syntax. The test lesson says tests do not run in the browser tour.
+
+- id: S29
+  title: MoonBit release notes (updates)
+  author: MoonBit team
+  publisher: moonbitlang.com
+  date: "v0.10.19 2026-11-05; v0.10.14 2026-09-21"
+  url: https://www.moonbitlang.com/updates/
+  source_type: documentation
+  primary_source: true
+  relevance: high
+  credibility: medium
+  claims_supported: ["Claim 4", "Claim 12"]
+  notes: Read through the updates index; only v0.10.19 and v0.10.14 entries were verbatim, other entries partly summarized by the fetch tool.
+
+- id: S30
+  title: moonbitlang/skills
+  author: MoonBit
+  publisher: GitHub
+  date: accessed 2026-11-07
+  url: https://github.com/moonbitlang/skills
+  source_type: repository
+  primary_source: true
+  relevance: low
+  credibility: medium
+  claims_supported: ["Claim 12"]
+  notes: Agent skills as SKILL.md folders; individual skills not enumerated or read.
+
+- id: S31
+  title: moonbitlang/moon and moonbitlang/core READMEs
+  author: MoonBit
+  publisher: GitHub
+  date: accessed 2026-11-07
+  url: https://github.com/moonbitlang/core
+  source_type: repository
+  primary_source: true
+  relevance: medium
+  credibility: medium
+  claims_supported: ["Claim 12"]
+  notes: core README says "experimental and under active development"; moon is Apache-2.0 (NOTICE file not read). Also https://github.com/moonbitlang/moon.

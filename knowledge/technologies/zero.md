@@ -10,3 +10,9 @@ Atomicity, rollback and concurrent-edit behavior are undocumented as of
 
 Sources: https://zerolang.ai/concepts/graph-architecture ,
 https://github.com/vercel-labs/zerolang
+
+Added 2026-11-07: install `curl -fsSL https://zerolang.ai/install.sh | bash`;
+docs say "Experimental ... Expect breaking changes"; no version number shown.
+Explicit capabilities (`world: World`), explicit errors (`raises`, `check`),
+no hidden exceptions. `zero patch` also supports `--check-only` and
+`--dry-run`. Patch results are narrated in the docs, not captured.

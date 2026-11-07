@@ -83,11 +83,17 @@ and the docs do not use the word "transactional" [S1, S2]. A stale-hash
 check detects a concurrent change; it does not by itself say what happens to
 two agents editing at once.
 
+Update 2026-11-07: the CLI docs also show `zero patch --check-only` and
+`--dry-run --json` on a patch file, a `--expect-graph-hash` guard, and several
+patch forms (`--op`, a patch file with an `expect graphHash` line,
+`--replace-fn`, `--replace-in-fn`) [S22]. That adds a preview-before-apply
+step; it still does not document atomicity, rollback or concurrent edits.
+
 ## Assessment
 
-Not supported. The article may say Zero validates a patch before writing and
-rejects stale state; it must not say transactional or imply multi-agent
-safety without reading the implementation.
+Not supported. The article may say Zero validates a patch before writing,
+offers a dry run, and rejects stale state; it must not say transactional or
+imply multi-agent safety without reading the implementation.
 
 ## Confidence
 
@@ -118,10 +124,25 @@ features in the present tense; its compile-speed-versus-Go claim has no
 benchmark [S4]. The repo page shows no releases and does not say whether
 canary or `baml_language` is released [S5].
 
+Update 2026-11-07: the developer docs do document the new language's
+features (typed errors with `throws`/`catch`/`catch_all`, `spawn`/`await`
+concurrency, interfaces, a TypeScript bridge that generates `baml_sdk/`, a
+`baml test` command), but every guide says to install Canary [S23]. The CLI
+and packages pages state: "No stable release has been published in this
+catalog. Canary and nightly entries are labeled explicitly and are not stable
+releases"; v0.25.2 is listed as canary, published Nov 6, 2026 [S24]. The
+book is "being published chapter by chapter": classes/enums, testing, prompts
+and evals chapters are not yet published [S24]. The older BAML (v0) README
+says it is stable and used in production, and the relationship between the
+two languages is not explained on any page read; blog titles mention an
+unexplained "BAML v1" [S26].
+
 ## Assessment
 
-The direction is claimed, but "shipped" is unproven. Describe the canary as
-the project's stated goal. Apache-2.0; BoundaryML; 9.5k stars [S5].
+The new language exists and is documented, but only in canary, with no stable
+release. The "general-purpose language" direction is claimed in the README
+and visible in the docs. Say "canary, documented, not stable". Apache-2.0;
+BoundaryML (Seattle per README footer); 9.5k stars [S5].
 
 ## Confidence
 
@@ -171,9 +192,19 @@ command for them [S7, S19]. The `editor/` README mentions a "DiffEditor"
 facade, an unconfirmed lead. Docs/ files and the 2026-10-10 MoonBit blog post
 were not read.
 
+Update 2026-11-07 (second pass): the MoonBit release notes for v0.10.14
+(2026-09-21) list under SeekMoon: "Integrated diff algorithms based on
+MoonBit tokens and ASTs, with support for ignoring differences in tests and
+comments", and v0.10.19 (2026-11-05) adds "cloud agents" and "local pull
+request review" [S29]. That corroborates the token/AST diff part of the post
+(vendor-reported). Separately, the documented `moon ide` command set provides
+semantic navigation (see Claim 12) but no syntax-tree pattern search. The
+post's structural search with placeholders is still not located in any
+documentation or repository read.
+
 ## Confidence
 
-Medium (post describes it), Low (that it matches the repository)
+Medium (diff corroborated by changelog), Low (structural search)
 
 ---
 
@@ -393,14 +424,320 @@ Medium (pieces exist), Low (that they compose into a checked transaction)
 
 ---
 
+# Claim 10
+
+Zero: what it is, how it works, and where it stands. (factual; tour material)
+
+## Supporting evidence
+
+"A programming language where the graph is the program. Humans ask for
+outcomes. Agents query the program graph, submit checked edits, and prove the
+result." [S22]. Agents author through `zero query` and `zero patch`; humans
+review through `.0` projections and may edit them as an escape hatch [S22].
+Explicit capabilities: `world: World` is a capability parameter and
+`world.out.write(...)` writes through it; hosted APIs (filesystem, network,
+HTTP) "require target capabilities" [S22]. Errors are explicit: `fn ...
+raises` and `check`; "There is no hidden exception system." Numeric types do
+not implicitly narrow or widen; `.value` reads need a visible `.has` guard
+[S22]. Stated runtime goals: token-efficient inspection, low memory, fast
+startup, explicit capabilities, small dependency-free artifacts [S22].
+Install: `curl -fsSL https://zerolang.ai/install.sh | bash`, then `zero
+--version`, `zero doctor` [S22]. Apache-2.0, Vercel Labs, ~5.4k stars [S2].
+
+## Contrary evidence
+
+Marked "Experimental"; the docs say "Expect breaking changes. Run it in a
+safe environment, not against production systems" [S22]. No version number or
+release date on the pages read. No maintainers named. No non-goals stated.
+The docs show `zero patch` results as narrated text rather than captured
+terminal output; captured output exists only for `zero query` (a graph dump).
+Generics, inference and effect-system semantics are not described on the pages
+read.
+
+## Assessment
+
+Enough to tour accurately. Present Zero as an experimental design with a real
+CLI and docs, not as a production tool, and do not show narrated results as
+real output.
+
+## Confidence
+
+High (design as documented), Low (maturity and behavior beyond the docs)
+
+---
+
+# Claim 11
+
+BAML: what the new language is, how it works, and where it stands. (factual;
+tour material)
+
+## Supporting evidence
+
+README: "BAML is the programming language for agents", TypeScript-like
+syntax, typed errors, built-in tests/evals, callable from TypeScript, Python,
+Go, C# and Java [S4]. Model-backed functions declare a `client` and a `prompt`
+and must satisfy their declared return type; `ctx.output_format()` injects the
+output schema [S23]. Errors are declared with `throws`, raised with `throw`,
+handled with `catch` and an exhaustive `catch_all`; "Omission doesn't mean
+`throws never`" [S23]. Concurrency: `spawn` creates "a logical BAML thread,
+not a dedicated operating-system thread", `await` joins, "BAML keeps
+concurrency at the call site" [S23]. `baml run`, `baml check`, `baml test`
+exist; the TypeScript bridge generates `baml_sdk/` via `baml generate`
+[S23, S24]. The 0.23.0 release notes add `structured_output = true` for
+OpenAI clients [S25]. Standard packages include `ai`, `anthropic`, `assert`,
+`aws`, `baml`, `claude_code`, `google`, `log`, `openai`, `reflect`, `testing`,
+`trace`, `typesafeai`, `vercel` [S24].
+
+## Contrary evidence
+
+Canary only, no stable release (Claim 3). No test or eval example exists on
+any page read, and the testing and evals chapters are unpublished. The only
+class-as-return-type example is a snippet in the 0.23.0 post, using
+`ChatClient` where the docs use `ResponsesClient`, so syntax is moving
+[S23, S25]. Package names are listed without descriptions. The README's
+compile-speed claim has no benchmark [S4].
+
+## Assessment
+
+Good tour material for the language's shape (typed model calls, typed
+errors, call-site concurrency), as long as every example is labeled canary and
+attributed. Do not describe testing or evals beyond "the README and CLI say
+they exist".
+
+## Confidence
+
+High (as documented), Low (stability and testing features)
+
+---
+
+# Claim 12
+
+MoonBit: what the language and toolchain are, and where they stand. (factual;
+tour material)
+
+## Supporting evidence
+
+"An end-to-end programming language toolchain for cloud and edge computing
+across wasm, wasm-gc, js, and native backends", with an "AI native" framing
+and claims of small WASM output and fast compilation (vendor claims, no
+benchmarks on the pages read) [S27]. Language status: "currently in
+beta-preview", "can already be used in production, with backwards-incompatible
+changes evaluated seriously" [S27]. Current release: v0.10.19, 2026-11-05;
+earlier v0.10.14 (2026-09-21) and v0.10.0 (2026-06-08) [S29]. Package
+registry: mooncakes.io [S27]. Tooling: `moon` (build, check, test, fmt, run,
+doc, publish and more) [S27]; `moon ide` ("MoonBit Agent IDE") provides
+`peek-def`, `find-references`, `rename`, `hover`, `outline`, `analyze`, `doc`,
+`workspace-symbols`, `codelens`, `gen-symbols`, and the docs say they "use
+semantic analysis rather than text matching" [S27]. `.mbtx` script mode with a
+frontmatter import header and `moon run script.mbtx` [S27]. A `moonbitlang/
+skills` repository of agent skills (`SKILL.md` folders) installable with `npx
+skills` [S30]. Apache-2.0 for `moon`; organization IDEA (International
+Digital Economy Academy), Shenzhen [S27, S31].
+
+## Contrary evidence
+
+Pre-1.0 (0.10.x). The `core` README says "It is experimental and under active
+development" and "The API is subject to change", which conflicts with
+"beta-preview" and "can be used in production" [S31]. Syntax is moving: the
+v0.10.19 notes move trait derivation from `derive(...)` after a type to a
+`#derive(...)` attribute above it, and rename `Int`/`UInt` to `Int32`/`UInt32`
+(with `Int` remaining as an alias), so the official tour's examples already
+use older syntax [S28, S29]. `moon prove` (Why3 and SMT solvers) is described
+in the 2026-10-10 blog post but appears in no documentation page, and the
+documented `moon` command list has no `prove` [S21, S27]. The `moon help`
+output on the download page omits `ide`, `prove`, `cram` and `moonx`, so it
+looks out of date [S27]. No syntax-tree pattern search in `moon ide`. No
+named maintainers.
+
+## Assessment
+
+MoonBit is the most conventional of the three and the best documented, but
+fast-moving. Tour examples must carry the version they were taken from and
+avoid `derive` forms. Do not present `moon prove` as available without
+verification.
+
+## Confidence
+
+High (language and toolchain as documented), Low (`moon prove`, structural
+search, production readiness)
+
+---
+
 # Useful examples
 
-- Zero's patch example: node reference, `expect` value, new value, graph
-  hash; rejected if any no longer match [S1].
-- SeekMoon's 43-match structural search in `core` [S6], pending the
-  verification in Claim 4.
-- LSP `TextDocumentEdit` version checking as the existing analogue of Zero's
-  stale-hash guard [S8].
+Verbatim code taken from official pages, for the tour. Do not edit it; label
+each sample with its source and the date read (2026-11-07). The fetch tool
+relays pages through a model and some blocks lost whitespace, so re-copy each
+block from the live page before publication.
+
+## Zero
+
+From the Zero README, `.0` projection (also on zerolang.ai) [S2, S22]:
+
+```
+pub fn main(world: World) -> Void raises {
+    check world.out.write("hello from zero\n")
+}
+```
+
+Creating and running it with checked patch operations, from the README [S2]:
+
+```
+zero init
+zero patch --op 'addMain' --op 'addCheckWrite fn="main" text="hello from zero\\n"'
+zero run
+```
+
+An edit guarded by the graph hash, from zerolang.ai [S22]:
+
+```
+zero patch \
+  --expect-graph-hash graph:a7f7e6899a73f3b4 \
+  --op 'set node="#expr_653eeb6e" \
+    field="value" \
+    expect="hello from zero\n" \
+    value="hello graph\n"'
+```
+
+Graph query output, from zerolang.ai [S22]:
+
+```
+zero-graph v1
+origin source-text
+module "hello"
+hash "graph:a7f7e6899a73f3b4"
+
+node #decl_ad8d9028 Function name:"main" type:"Void" public:true fallible:true
+node #param_4610ae76 Param name:"world" type:"World"
+node #expr_c403020c MethodCall name:"write" type:"Void"
+node #expr_653eeb6e Literal type:"String" value:"hello from zero\n"
+edge #expr_c403020c arg #expr_653eeb6e order:0
+```
+
+Caveat: the docs show the result of `zero patch` as narrated text; only the
+`zero query` dump above is captured output.
+
+## BAML (canary)
+
+A model-backed function returning an enum, from the "Classify support tickets"
+example [S23]:
+
+```
+enum Category {
+  Refund
+  CancelOrder
+  TechnicalSupport
+  AccountIssue
+  Question
+}
+
+function classify_message(input: string) -> Category {
+  client: openai.ResponsesClient.new(model = "gpt-4.1-mini", api_key = env.OPENAI_API_KEY)
+  prompt: `
+    ${role("system")}
+    Classify the support message into one category.
+    ${ctx.output_format()}
+
+    ${role("user")}
+    ${input}
+  `
+}
+```
+
+Run with `baml check` then `baml run classify_message -- --input "I was
+charged twice for my order"` [S23].
+
+Typed errors, from the "Handle errors" chapter [S23]:
+
+```
+function handle_bad_input(
+    tool: string,
+) -> string throws ToolUnavailable | baml.errors.InvalidArgument {
+    invoke_tool(tool) catch (e) {
+        BadToolInput => `invalid tool input: ${e.message}`,
+    }
+}
+```
+
+Concurrency, from the "Run work concurrently" chapter [S23]:
+
+```
+function read_two_documents_all(first_path: string, second_path: string) -> string[] {
+    let first_future = spawn { baml.fs.read(first_path) };
+    let second_future = spawn { baml.fs.read(second_path) };
+    await baml.future.all([first_future, second_future])
+}
+```
+
+Calling it from TypeScript, from the TypeScript bridge page [S23]:
+
+```
+import { classify_message, type Category } from "./baml_sdk/index.js"
+
+export async function classify(input: string): Promise<Category> {
+  return classify_message(input)
+}
+```
+
+## MoonBit (v0.10.19 era; tour syntax predates the derive change)
+
+Hello world and enum with pattern matching, from the official tour [S28]:
+
+```
+enum Color {
+  Red
+  Green
+  Blue
+  RGB(Int, Int, Int)
+  CMYK(Int, Int, Int, Int)
+}
+
+fn print_color(color : Color) -> Unit {
+  match color {
+    Red => println("Red")
+    Green => println("Green")
+    Blue => println("Blue")
+    // Take the three Int values from RGB and print them.
+    RGB(r, g, b) => println("RGB: \{r}, \{g}, \{b}")
+    CMYK(c, m, y, k) => println("CMYK: \{c}, \{m}, \{y}, \{k}")
+  }
+}
+```
+
+A test block, from the tour's test lesson [S28]:
+
+```
+test "fibonacci" {
+  inspect(fib(5), content="5")
+  inspect(fib(6), content="8")
+}
+
+fn fib(n : Int) -> Int {
+  if n < 2 {
+    n
+  } else {
+    fib(n - 1) + fib(n - 2)
+  }
+}
+```
+
+Run with `moon test`; `moon test --update` inserts results [S28].
+
+A script, from the docs' `.mbtx` page, run with `moon run script.mbtx` [S27]:
+
+```
+---
+import {
+"moonbitlang/core/list" @ls
+}
+---
+
+///|
+async fn main {
+let xs = @ls.List(["1", "2", "3"])
+debug(xs)
+}
+```
 
 # Useful quotes
 
@@ -409,10 +746,17 @@ Medium (pieces exist), Low (that they compose into a checked transaction)
 
 # Open questions
 
-- (Added for the tour) MoonBit the language: syntax, type system, tooling,
-  version, maturity and governance. Not researched.
-- (Added) Real, attributed code and command examples for Zero, BAML and
-  MoonBit; none captured yet.
+- (Resolved 2026-11-07) MoonBit language, version and examples: captured in
+  Claim 12 and Useful examples. v0.10.19, pre-1.0.
+- (Resolved) Real code examples for Zero, BAML and MoonBit: captured above,
+  all attributed; re-copy from live pages before publication.
+- Still open for the tour: `moon prove` is not in the documentation; a BAML
+  test or eval example does not exist in the published docs; Zero's patch
+  results are narrated rather than captured; MoonBit's syntax-tree search is
+  unlocated; none of the three has named maintainers on the pages read.
+- First-hand trial: nothing here has been run. Every example is copied from
+  documentation, so the tour cannot describe real behavior unless the author
+  runs them.
 - (Added with the broader thesis) Is there evidence that language properties
   such as static typing or diagnostic quality change agent success rates?
 - (Added) Is there evidence that training-data volume or ecosystem size

@@ -3,7 +3,7 @@ id: tour-zero-baml-moonbit
 title: >
   Three Languages Built for Coding Agents: A Tour of Zero, BAML and MoonBit
 
-status: thesis
+status: research
 
 created: 2026-11-01
 
@@ -22,6 +22,6 @@ audience:
 
 word_count_target: 3500
 
-thesis_approved: false
+thesis_approved: true
 
 publication_approved: false
