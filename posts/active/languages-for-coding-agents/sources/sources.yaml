@@ -130,3 +130,107 @@
   credibility: medium
   claims_supported: ["Claim 5"]
   notes: Thin page; does not cover refactors or edit objects. Find the API reference.
+
+- id: S12
+  title: Type-Constrained Code Generation with Language Models
+  author: Mündler, He, Wang, Sen, Song, Vechev
+  publisher: arXiv (also PLDI 2025)
+  date: "2025-04-12 (v2 2025-05-08)"
+  url: https://arxiv.org/abs/2504.09246
+  source_type: paper
+  primary_source: true
+  relevance: high
+  credibility: high
+  claims_supported: ["Claim 7"]
+  notes: Abstract read; no figures, models or per-benchmark details on the page. HumanEval/MBPP are function-level.
+
+- id: S13
+  title: SWE-bench Multilingual
+  author: Khandpur, Lieret, Jimenez, Press, Yang
+  publisher: swebench.com
+  date: accessed 2026-11-07
+  url: https://www.swebench.com/multilingual.html
+  source_type: benchmark
+  primary_source: true
+  relevance: high
+  credibility: medium
+  claims_supported: ["Claim 7"]
+  notes: One model (Claude 3.7 Sonnet, SWE-agent); about 42-44 tasks per language group; C grouped with C++, JS with TS.
+
+- id: S14
+  title: "Multi-SWE-bench: A Multilingual Benchmark for Issue Resolving"
+  author: Zan et al. (ByteDance Seed)
+  publisher: arXiv
+  date: "2025-04-03"
+  url: https://arxiv.org/abs/2504.02605
+  source_type: paper
+  primary_source: true
+  relevance: medium
+  credibility: medium
+  claims_supported: ["Claim 7"]
+  notes: Per-language rates and the TS/JS explanation were seen only in a model-written summary of the table; verify against the PDF. Summary's instance counts did not add up to 1,632.
+
+- id: S15
+  title: "Enhancing Code Generation for Low-Resource Languages: No Silver Bullet"
+  author: Giagnorio, Martin-Lopez, Bavota
+  publisher: arXiv (ICPC 2025)
+  date: "2025-01-31"
+  url: https://arxiv.org/abs/2501.19085
+  source_type: paper
+  primary_source: true
+  relevance: medium
+  credibility: high
+  claims_supported: ["Claim 8"]
+  notes: R and Racket only; gap stated qualitatively; not about agents.
+
+- id: S16
+  title: Using the Compiler API (TypeScript wiki)
+  author: Microsoft
+  publisher: GitHub
+  date: accessed 2026-11-07
+  url: https://github.com/microsoft/TypeScript/wiki/Using-the-Compiler-API
+  source_type: documentation
+  primary_source: true
+  relevance: high
+  credibility: high
+  claims_supported: ["Claim 9"]
+  notes: Describes TypeScript 6.0 and earlier; says 7.1 will have a completely different API.
+
+- id: S17
+  title: ts-morph documentation
+  author: ts-morph project
+  publisher: ts-morph.com
+  date: accessed 2026-11-07
+  url: https://ts-morph.com/manipulation
+  source_type: documentation
+  primary_source: true
+  relevance: high
+  credibility: medium
+  claims_supported: ["Claim 9"]
+  notes: Save batching is advice, not a documented transaction; renaming/references sub-pages not fetched.
+
+- id: S18
+  title: Standalone Server (tsserver) (TypeScript wiki)
+  author: Microsoft
+  publisher: GitHub
+  date: accessed 2026-11-07
+  url: https://github.com/microsoft/TypeScript/wiki/Standalone-Server-%28tsserver%29
+  source_type: documentation
+  primary_source: true
+  relevance: medium
+  credibility: high
+  claims_supported: ["Claim 9"]
+  notes: Names only a few commands; the full list is in src/server/protocol.ts, not read.
+
+- id: S19
+  title: openseek desktop README ("SeekMoon")
+  author: MoonBit
+  publisher: GitHub
+  date: accessed 2026-11-07
+  url: https://github.com/moonbitlang/openseek/blob/main/desktop/README.md
+  source_type: repository
+  primary_source: true
+  relevance: medium
+  credibility: medium
+  claims_supported: ["Claim 4"]
+  notes: First ~39k characters read verbatim, remainder via summary; no mention of structural search or Diff Review.

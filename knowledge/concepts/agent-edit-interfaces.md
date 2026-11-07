@@ -14,3 +14,20 @@
   per vendor post; not confirmed in the linked repository.
 
 See `posts/active/languages-for-coding-agents/sources/sources.yaml`.
+
+## Added 2026-11-07
+
+- **Typing in the loop**: type-constrained decoding cut compilation errors by
+  more than half on HumanEval/MBPP (arXiv 2504.09246); function-level, not
+  agentic.
+- **Language effects on agents**: SWE-bench Multilingual (one model, ~43
+  tasks per group) had Rust 58%, Java 53%, JS/TS 35%, Go 31%, C/C++ 29%;
+  Multi-SWE-bench reportedly ranks TS/JS lowest (unverified). Benchmarks
+  disagree and are confounded; do not cite as a typing effect.
+- **Low-resource gap**: R and Racket lag high-resource languages
+  (arXiv 2501.19085); qualitative, not about agents.
+- **TypeScript**: compiler API (TS 6.0 and earlier; 7.1 will have a
+  completely different API) and ts-morph provide AST edits and code fixes;
+  no documented transactional semantic edits found.
+- **SeekMoon**: the openseek `desktop` client is named SeekMoon; its
+  structural search and Diff Review remain unlocated in the repo.

@@ -149,6 +149,15 @@ confirmed by the linked repository's README. Either the README is
 incomplete, the features live elsewhere, or the post overstates. Do not
 describe the structural search as available until verified in the code.
 
+Update 2026-11-07: a second look found that `moonbitlang/openseek/desktop`
+is itself titled "SeekMoon" ("a Proton + Rabbita desktop client for the
+OpenSeek agent, written in MoonBit"), so SeekMoon is the desktop client over
+the OpenSeek agent. Its README still does not mention syntax-tree search,
+Token/Syntax Tree Diff or Diff Review, and the post names no package or
+command for them [S7, S19]. The `editor/` README mentions a "DiffEditor"
+facade, an unconfirmed lead. Docs/ files and the 2026-10-10 MoonBit blog post
+were not read.
+
 ## Confidence
 
 Medium (post describes it), Low (that it matches the repository)
@@ -223,6 +232,131 @@ Medium
 
 ---
 
+# Claim 7
+
+A language's properties (static typing, diagnostics) change coding-agent
+success, so the feedback loop matters more than syntax. (interpretive; load-
+bearing for the broadened thesis, Argument 1)
+
+## Supporting evidence
+
+Type-constrained decoding (Mündler, He, Wang, Sen, Song, Vechev; arXiv
+2504.09246, submitted 2025-04-12) uses a language's type system to steer
+generation and, per its abstract, "reduces compilation errors by more than
+half and significantly increases functional correctness in code synthesis,
+translation, and repair tasks across LLMs of various sizes and model
+families", formalized on a simply-typed language and extended to TypeScript
+[S12]. This is direct evidence that putting static checking in the loop
+helps model output.
+
+## Contrary evidence
+
+The paper evaluates on HumanEval and MBPP (function-level tasks), not
+repository-level agent work, and the abstract gives no exact figures or
+whether the TypeScript experiments used those benchmarks [S12].
+Multilingual agent benchmarks do not show a clean typing effect. In SWE-bench
+Multilingual (300 tasks, 42 repos, one model, SWE-agent with Claude 3.7
+Sonnet, ~42-44 tasks per language group), resolution rates were: Rust 58.14%,
+Java 53.49%, PHP 48.84%, Ruby 43.18%, JS/TS 34.88%, Go 30.95%, C/C++ 28.57%
+[S13]. A different benchmark, Multi-SWE-bench (ByteDance Seed, arXiv
+2504.02605, 1,632 instances), reportedly found TypeScript and JavaScript
+lowest and attributes it to dynamic typing and asynchronous execution, but I
+could only read that through a model-written summary of its results table
+(for example Python 52.20, Java 23.44, Rust 15.90, TS 11.61, JS 5.06 as best
+rates); the per-language figures and the authors' explanation are unverified
+[S14].
+
+## Assessment
+
+Static checking in the generation loop helps in the one controlled study
+found. Cross-language benchmark results are confounded by repository, task
+mix and model, rely on small per-language counts, and the two benchmarks
+disagree on which languages are hard. They do not isolate language
+properties. The article may claim a plausible link and cite the decoding
+result, but must not say benchmarks show typed languages do better.
+
+## Confidence
+
+Medium (type checking helps generation), Low (language properties explain
+cross-language agent differences)
+
+---
+
+# Claim 8
+
+Training-data and ecosystem scarcity lowers model performance for a
+language, which favors incumbents. (factual, for low-resource languages)
+
+## Supporting evidence
+
+Giagnorio, Martin-Lopez and Bavota (ICPC 2025, arXiv 2501.19085) studied R
+and Racket with six LLMs and report poorer code generation than for high-
+resource languages, with the best remedy depending on model size: fine-
+tuning usually best for smaller models, in-context learning increasingly
+effective for larger ones, and fine-tuning very large models can hurt [S15].
+
+## Contrary evidence
+
+The abstract describes the gap only qualitatively, with no numbers or model
+names on the page [S15]. It concerns two low-resource languages and
+code-generation tasks, not coding agents, and not languages as new as Zero,
+BAML or MoonBit. Larger models and in-context learning narrow the gap.
+
+## Assessment
+
+Supports the direction of the incumbency argument for low-resource
+languages in general. It does not measure how a brand-new language fares with
+current frontier models or agents, so keep that part of Argument 3 as an
+inference.
+
+## Confidence
+
+Medium (low-resource gap exists), Low (applies to new agent-oriented languages)
+
+---
+
+# Claim 9
+
+TypeScript's compiler and tooling already provide a transactional semantic
+editing layer. (factual; tests thesis Argument 3)
+
+## Supporting evidence
+
+The compiler API exposes program creation, diagnostics, a type checker
+(`getSymbolAtLocation`, `getTypeAtLocation`), AST construction through
+`ts.factory`, a printer, and a language service with semantic diagnostics
+and per-file `version` tracking [S16]. ts-morph adds node manipulation
+(`replaceWithText`, `addStatements`, `removeStatement`), code fixes
+(`organizeImports`, `fixMissingImports`, `fixUnusedIdentifiers`), and
+batches file-system changes until `project.save()`, noting that on a
+mid-run error "the files won't be in a halfway state" [S17].
+
+## Contrary evidence
+
+The compiler API page covers TypeScript 6.0 and earlier and says "TypeScript
+7.1 will have a completely different API" [S16], a stability risk for any
+layer built on it. Neither source documents atomic or versioned multi-file
+semantic edits; the ts-morph save batching is advice, not a documented
+transaction guarantee [S17]. The pages read do not mention rename, find
+references, or refactoring edit objects (`getEditsForRefactor`), and the
+tsserver wiki page names only `open`, `quickinfo`, `completions` and `geterr`
+[S18]. The ts-morph sub-pages for renaming, finding references and the
+language service were not fetched.
+
+## Assessment
+
+Parts of the interface clearly exist (types, diagnostics, AST edits, code
+fixes), but a transactional, versioned semantic edit layer for TypeScript is
+not established by these sources, and the compiler API is about to change.
+Argument 3 should say "partly available, with gaps", and the experiment's
+purpose is to find the gaps.
+
+## Confidence
+
+Medium (pieces exist), Low (that they compose into a checked transaction)
+
+---
+
 # Useful examples
 
 - Zero's patch example: node reference, `expect` value, new value, graph
@@ -247,7 +381,10 @@ Medium
   Read the implementation or ask the maintainers.
 - Is the BAML canary language released, and which features are implemented?
 - Where do SeekMoon's structural search and diff review actually live?
-- What do the TypeScript compiler API and tsserver expose for semantic edits?
+- What do tsserver and the language service expose for rename, references
+  and refactor edits? (Partly answered in Claim 9: not found on the pages read.)
+- Verify Multi-SWE-bench's per-language table and its TS/JS explanation in
+  the paper itself (read only via summary).
 - No independent measurement of compiler speed or agent productivity for any
   of the three. This is the main evidence gap.
 - The distinction between type checking, formal verification and behavioral
