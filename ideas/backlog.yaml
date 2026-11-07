@@ -134,26 +134,26 @@
   status: shortlisted
 
 - id: idea-004
-  working_title: "The Compiler as an API: What Zero, BAML and MoonBit Say About Languages for Coding Agents"
+  working_title: "Languages for Coding Agents: Where Should the Structure Live?"
   question: >
-    If AI coding agents become the primary authors of software, does the
-    interface between agent and compiler matter more than language syntax,
-    and does source code remain the source of truth?
+    If AI agents write much of our software, what makes a language and its
+    toolchain good for them, and does that need new languages or better
+    tooling around existing ones?
   hypothesis: >
-    The leverage is shifting from human-facing syntax to a structured,
-    queryable, checked interface to the program; much of it can be delivered
-    over existing languages, so Zero, BAML and MoonBit are best read as three
-    experiments in that interface rather than as replacements for mainstream
-    languages.
+    What matters most is the quality of the feedback and editing loop
+    (static checking, structured diagnostics, queryable structure, checked
+    edits), much of which existing languages can gain through tooling; Zero,
+    BAML and MoonBit are probes into which parts need language-level change.
   why_now: >
     Three projects have recently shipped or documented different answers
     (graph-native Zero, agent-oriented BAML, tooling-first MoonBit/SeekMoon)
     while most agents still edit text files through a human-shaped interface.
   target_reader: software architects, principal engineers, engineering leaders, AI coding platform developers
   potential_argument: >
-    Frame the compiler as a semantic search, mutation, verification and
-    policy interface for agents; compare the three projects on where they put
-    the structure (representation, language semantics, tooling); argue that
+    Treat the compiler as one design axis (semantic search, mutation,
+    verification, policy); map where structure can live (representation,
+    language semantics, tooling) using the three projects as examples; weigh
+    the incumbency advantage of existing languages; argue that
     exposing a transactional semantic layer over an existing language such as
     TypeScript could capture much of the value, and propose an experiment to
     test it.

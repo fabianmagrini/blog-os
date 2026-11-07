@@ -13,4 +13,4 @@
 - **Tooling-level (MoonBit SeekMoon)**: syntax-tree search and diff review
   per vendor post; not confirmed in the linked repository.
 
-See `posts/active/compiler-as-api-agent-native-languages/sources/sources.yaml`.
+See `posts/active/languages-for-coding-agents/sources/sources.yaml`.

@@ -1,9 +1,16 @@
 # Research Dossier
 
+> **Revision note (2026-11-07):** the thesis was broadened to the general
+> question of languages for coding agents and is awaiting re-approval. The
+> claims below remain valid as evidence about three case studies and the
+> surrounding tooling. New evidence needed for the broader frame is listed
+> under "Open questions" (language-level effects on agent performance;
+> training-data and ecosystem effects).
+
+
 ## Article
 
-The Compiler as an API: What Zero, BAML and MoonBit Say About Languages for
-Coding Agents
+Languages for Coding Agents: Where Should the Structure Live?
 
 ## Thesis
 
@@ -232,6 +239,10 @@ Medium
 
 # Open questions
 
+- (Added with the broader thesis) Is there evidence that language properties
+  such as static typing or diagnostic quality change agent success rates?
+- (Added) Is there evidence that training-data volume or ecosystem size
+  affects agent performance by language? Currently an assumption.
 - What does Zero's patch guarantee under concurrent edits, and is it atomic?
   Read the implementation or ask the maintainers.
 - Is the BAML canary language released, and which features are implemented?
