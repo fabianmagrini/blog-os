@@ -168,7 +168,11 @@
   relevance: medium
   credibility: medium
   claims_supported: ["Claim 7"]
-  notes: Per-language rates and the TS/JS explanation were seen only in a model-written summary of the table; verify against the PDF. Summary's instance counts did not add up to 1,632.
+  notes: >
+    Table 4 and Section 6.1.1 read verbatim from the arXiv HTML (the PDF
+    returned no readable text). Table 2's 2,132 total includes 500 Python
+    rows; the seven languages sum to 1,632. TypeScript has only 3 source
+    repositories, so results are repo-confounded.
 
 - id: S15
   title: "Enhancing Code Generation for Low-Resource Languages: No Silver Bullet"
@@ -207,7 +211,7 @@
   relevance: high
   credibility: medium
   claims_supported: ["Claim 9"]
-  notes: Save batching is advice, not a documented transaction; renaming/references sub-pages not fetched.
+  notes: Save batching is advice, not a documented transaction. See S20 for rename and references.
 
 - id: S18
   title: Standalone Server (tsserver) (TypeScript wiki)
@@ -234,3 +238,35 @@
   credibility: medium
   claims_supported: ["Claim 4"]
   notes: First ~39k characters read verbatim, remainder via summary; no mention of structural search or Diff Review.
+
+- id: S20
+  title: ts-morph renaming, finding references, language service, transforms
+  author: ts-morph project
+  publisher: ts-morph.com
+  date: accessed 2026-11-07
+  url: https://ts-morph.com/manipulation/renaming
+  source_type: documentation
+  primary_source: true
+  relevance: high
+  credibility: medium
+  claims_supported: ["Claim 9"]
+  notes: >
+    Also read: /navigation/finding-references, /navigation/language-service,
+    /manipulation/transforms, /details/. The tsserver protocol.ts URL tried
+    returned 404 and was not read.
+
+- id: S21
+  title: Building Agents, MoonBit is all you need
+  author: MoonBit team
+  publisher: moonbitlang.com
+  date: "2026-10-10"
+  url: https://www.moonbitlang.com/blog/building-agents-moonbit
+  source_type: engineering-blog
+  primary_source: true
+  relevance: low
+  credibility: medium
+  claims_supported: ["Claim 4"]
+  notes: >
+    Read for SeekMoon leads; none found. Covers tests, snapshot and property
+    tests, `moon prove`, script mode, sandboxing and wasm. Not read for its
+    own claims; vendor post.

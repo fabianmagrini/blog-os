@@ -146,7 +146,12 @@ release or version is listed [S7].
 
 Unresolved. The shipped features are reported by the vendor's post but not
 confirmed by the linked repository's README. Either the README is
-incomplete, the features live elsewhere, or the post overstates. Do not
+incomplete, the features live elsewhere, or the post overstates. A further
+search of the desktop docs (UX guidelines, design notes), the desktop and
+editor directory listings, and the 2026-10-10 MoonBit post "Building Agents,
+MoonBit is all you need" found no mention of syntax-tree search, Token Diff,
+Syntax Tree Diff or Diff Review [S21]. The only lead is an unopened
+`editor/syntax` directory and a "DiffEditor" facade, both unconfirmed. Do not
 describe the structural search as available until verified in the code.
 
 Update 2026-11-07: a second look found that `moonbitlang/openseek/desktop`
@@ -259,12 +264,26 @@ Multilingual (300 tasks, 42 repos, one model, SWE-agent with Claude 3.7
 Sonnet, ~42-44 tasks per language group), resolution rates were: Rust 58.14%,
 Java 53.49%, PHP 48.84%, Ruby 43.18%, JS/TS 34.88%, Go 30.95%, C/C++ 28.57%
 [S13]. A different benchmark, Multi-SWE-bench (ByteDance Seed, arXiv
-2504.02605, 1,632 instances), reportedly found TypeScript and JavaScript
-lowest and attributes it to dynamic typing and asynchronous execution, but I
-could only read that through a model-written summary of its results table
-(for example Python 52.20, Java 23.44, Rust 15.90, TS 11.61, JS 5.06 as best
-rates); the per-language figures and the authors' explanation are unverified
-[S14].
+2504.02605; 1,632 instances from 39 repositories, 7 languages; 9 models x 3
+agent methods), was read from the paper's HTML (Table 4). The authors write
+that "TS and JS consistently yield the lowest resolved rates", attributing it
+to "dynamic typing, asynchronous execution, and diverse runtime behaviors"
+and, for C, C++, Rust and Go, to manual memory management, "complex build
+systems, and intricate type systems" [S14]. The best resolved rates in the
+table are Python 52.20, Java 23.44, Rust 15.90, C++ 14.73, TS 11.61, C 8.59,
+Go 7.48 and JS 5.06 [S14].
+
+Reading the table against that statement (my observation, not the authors'):
+JS is lowest, but TypeScript's best rate (11.61, and 11.16 for another
+method) is higher than Go's and C's best, and TS swings widely for the same
+model: Claude 3.7 Sonnet scores 11.16 under one agent method and 2.23 under
+another [S14]. Instance counts per language are uneven and come from few
+repositories: TypeScript 224 instances from 3 repositories, Go 428 from 3,
+JavaScript 356 from 6, Rust 239 from 10, Java 128 from 9 [S14]. TypeScript is
+statically typed, so the authors' "dynamic typing" explanation fits JS better
+than TS. The authors also list "intricate type systems" as a source of
+difficulty for other languages, which is not what a simple "static typing
+helps agents" story predicts.
 
 ## Assessment
 
@@ -278,7 +297,9 @@ result, but must not say benchmarks show typed languages do better.
 ## Confidence
 
 Medium (type checking helps generation), Low (language properties explain
-cross-language agent differences)
+cross-language agent differences; the two benchmarks disagree, results are
+repo-confounded, and even the authors' own table only partly matches their
+"TS and JS lowest" statement)
 
 ---
 
@@ -337,16 +358,23 @@ The compiler API page covers TypeScript 6.0 and earlier and says "TypeScript
 7.1 will have a completely different API" [S16], a stability risk for any
 layer built on it. Neither source documents atomic or versioned multi-file
 semantic edits; the ts-morph save batching is advice, not a documented
-transaction guarantee [S17]. The pages read do not mention rename, find
-references, or refactoring edit objects (`getEditsForRefactor`), and the
-tsserver wiki page names only `open`, `quickinfo`, `completions` and `geterr`
-[S18]. The ts-morph sub-pages for renaming, finding references and the
-language service were not fetched.
+transaction guarantee [S17]. Follow-up reading found that ts-morph does provide
+`rename` ("rename all usages ... across all files", with `renameInComments`
+and `renameInStrings` options), `findReferences()` and `getDefinitions()`
+[S20]. But its docs describe no refactor or code-action API beyond the code
+fixes noted above, expose the language service only as `compilerObject`
+("Generally you won't need to use the language service"), call AST transforms
+"not a typical scenario", and say "Manipulation support is lacking" for parts
+of the language [S20]. The tsserver wiki page names only `open`, `quickinfo`,
+`completions` and `geterr` [S18]; the protocol file that would list the edit
+commands could not be read (the URL tried returned 404), so tsserver's
+refactor and code-action commands, and any version or batching semantics,
+remain unverified.
 
 ## Assessment
 
-Parts of the interface clearly exist (types, diagnostics, AST edits, code
-fixes), but a transactional, versioned semantic edit layer for TypeScript is
+Parts of the interface clearly exist (types, diagnostics, AST edits, rename
+and find-references through ts-morph, code fixes), but a transactional, versioned semantic edit layer for TypeScript is
 not established by these sources, and the compiler API is about to change.
 Argument 3 should say "partly available, with gaps", and the experiment's
 purpose is to find the gaps.
@@ -383,8 +411,6 @@ Medium (pieces exist), Low (that they compose into a checked transaction)
 - Where do SeekMoon's structural search and diff review actually live?
 - What do tsserver and the language service expose for rename, references
   and refactor edits? (Partly answered in Claim 9: not found on the pages read.)
-- Verify Multi-SWE-bench's per-language table and its TS/JS explanation in
-  the paper itself (read only via summary).
 - No independent measurement of compiler speed or agent productivity for any
   of the three. This is the main evidence gap.
 - The distinction between type checking, formal verification and behavioral
