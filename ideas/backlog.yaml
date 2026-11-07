@@ -134,16 +134,15 @@
   status: shortlisted
 
 - id: idea-004
-  working_title: "Languages for Coding Agents: Where Should the Structure Live?"
+  working_title: "Three Languages Built for Coding Agents: A Tour of Zero, BAML and MoonBit"
   question: >
-    If AI agents write much of our software, what makes a language and its
-    toolchain good for them, and does that need new languages or better
-    tooling around existing ones?
+    What are Zero, BAML and MoonBit, how does each work, and what should a
+    reader make of them as languages built for coding agents?
   hypothesis: >
-    What matters most is the quality of the feedback and editing loop
-    (static checking, structured diagnostics, queryable structure, checked
-    edits), much of which existing languages can gain through tooling; Zero,
-    BAML and MoonBit are probes into which parts need language-level change.
+    The three are different bets rather than competitors: Zero on the
+    representation, BAML on typed agent behavior in the language, MoonBit on
+    toolchain around ordinary code. Each is best judged by what it ships
+    today, what it assumes and what it costs to adopt.
   why_now: >
     Three projects have recently shipped or documented different answers
     (graph-native Zero, agent-oriented BAML, tooling-first MoonBit/SeekMoon)

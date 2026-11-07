@@ -13,7 +13,7 @@
 - **Tooling-level (MoonBit SeekMoon)**: syntax-tree search and diff review
   per vendor post; not confirmed in the linked repository.
 
-See `posts/active/languages-for-coding-agents/sources/sources.yaml`.
+See `posts/active/tour-zero-baml-moonbit/sources/sources.yaml`.
 
 ## Added 2026-11-07
 

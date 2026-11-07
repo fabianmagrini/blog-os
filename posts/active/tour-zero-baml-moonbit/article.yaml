@@ -1,9 +1,9 @@
-id: languages-for-coding-agents
+id: tour-zero-baml-moonbit
 
 title: >
-  Languages for Coding Agents: Where Should the Structure Live?
+  Three Languages Built for Coding Agents: A Tour of Zero, BAML and MoonBit
 
-status: research
+status: thesis
 
 created: 2026-11-01
 
@@ -20,8 +20,8 @@ audience:
   - principal-engineers
   - engineering-leaders
 
-word_count_target: 3000
+word_count_target: 3500
 
-thesis_approved: true
+thesis_approved: false
 
 publication_approved: false

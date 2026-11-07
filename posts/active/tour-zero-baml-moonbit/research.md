@@ -1,5 +1,13 @@
 # Research Dossier
 
+> **Revision note (2026-11-07, second):** the article is now an explainer and
+> tour of Zero, BAML and MoonBit, and the thesis is awaiting approval. Claims
+> 1-6 are the core case-study evidence. Claims 7-9 (language effects, training
+> data, TypeScript tooling) are background for the closing section. New
+> research needed: the MoonBit language itself, and real code and workflow
+> examples for all three (see Open questions).
+
+
 > **Revision note (2026-11-07):** the thesis was broadened to the general
 > question of languages for coding agents and is awaiting re-approval. The
 > claims below remain valid as evidence about three case studies and the
@@ -10,7 +18,7 @@
 
 ## Article
 
-Languages for Coding Agents: Where Should the Structure Live?
+Three Languages Built for Coding Agents: A Tour of Zero, BAML and MoonBit
 
 ## Thesis
 
@@ -401,6 +409,10 @@ Medium (pieces exist), Low (that they compose into a checked transaction)
 
 # Open questions
 
+- (Added for the tour) MoonBit the language: syntax, type system, tooling,
+  version, maturity and governance. Not researched.
+- (Added) Real, attributed code and command examples for Zero, BAML and
+  MoonBit; none captured yet.
 - (Added with the broader thesis) Is there evidence that language properties
   such as static typing or diagnostic quality change agent success rates?
 - (Added) Is there evidence that training-data volume or ecosystem size
