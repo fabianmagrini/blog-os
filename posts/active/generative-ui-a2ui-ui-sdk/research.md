@@ -2,22 +2,21 @@
 
 ## Article
 
-Two Kinds of Generative UI: What A2UI 1.0 and Vercel's UI SDK Tell Us About
-Trusting Agents With Interfaces
+Three Jobs Called "Generative UI": Where to Draw the Boundary Between Agents and Interfaces
 
 ## Thesis
 
-"Generative UI" now covers two different jobs, an agent emitting an interface
-at runtime from components the app has registered (A2UI) and an agent
-authoring components at build time from tested behaviors (UI SDK), and in both
-the decision that matters most is the design of the catalog the developer owns,
-because that is where reliability, accessibility and brand safety are settled,
-not the model. (Approved 2026-11-15 with a request to widen to more
-libraries.)
+Revised 2026-11-15 and approved by the author (the original two-kinds thesis
+is in git history, commit dfc72cb): "Generative UI" now names at least three
+jobs (an agent emitting an interface, writing one, or operating one), and in
+each the thing worth designing is the boundary the developer owns, a
+component catalog for constrained emitters, a sandbox for unconstrained ones
+and a permission layer for agents acting on a live page, because that
+boundary, not the model, is where reliability, accessibility and brand safety
+are settled.
 
-> **Read this first: the evidence challenges the thesis in three places.**
-> See "Thesis impact" at the end. The thesis text has not been changed; it
-> needs the author's decision.
+> **Note:** the "Thesis impact" section at the end records why the thesis was
+> revised; its proposed text is now adopted.
 
 All figures were read on 2026-11-15. Star counts are popularity, not quality.
 Several fetches were capped on quote length, so code and JSON samples must be

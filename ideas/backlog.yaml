@@ -179,27 +179,26 @@
   status: shortlisted
 
 - id: idea-005
-  working_title: "Two Kinds of Generative UI: What A2UI 1.0 and Vercel's UI SDK Tell Us About Trusting Agents With Interfaces"
+  working_title: 'Three Jobs Called "Generative UI": Where to Draw the Boundary Between Agents and Interfaces'
   question: >
     As A2UI 1.0 and libraries like Vercel Labs' UI SDK arrive, what does
-    "generative UI" actually mean, and where should the trust boundary sit
-    between the agent and the interface?
+    "generative UI" mean, and where should the developer draw the boundary
+    between an agent and the interface?
   hypothesis: >
-    The term covers two different things: agents emitting UI at runtime from a
-    catalog the app registers (A2UI), and agents authoring components at build
-    time from tested behaviors (UI SDK). Both move reliability, accessibility
-    and brand safety into a catalog the developer owns, so the catalog design,
-    not the model, is the decision that matters.
+    The term covers at least three jobs: an agent emitting UI, writing it, or
+    operating it. In each the design that matters is the boundary the developer
+    owns (catalog, sandbox or permission layer), not the model. Revised
+    2026-11-15 from a two-kinds framing after research.
   why_now: >
     A2UI 1.0 was announced 2026-11-11 and UI SDK shipped 0.1.0-beta.2 on
     2026-11-13, in the same week, with different ideas of what an agent
     contributes to an interface.
   target_reader: frontend and platform architects, principal engineers, engineering leaders building agent products
   potential_argument: >
-    Separate runtime from build-time generative UI, compare where each puts
-    the trust boundary (registered components and server-side binding versus
-    tested behaviors and ARIA), say what is stable versus beta in each, and
-    give a checklist for choosing and for what to verify.
+    Separate emit, write and operate; name the boundary in each (catalog,
+    sandbox, permission layer); place the verified projects on that map; show
+    where vendor claims outrun the docs; and give a checklist for choosing and
+    verifying.
   supporting_signals:
     - signal-2026-11-15-001
     - signal-2026-11-15-002
