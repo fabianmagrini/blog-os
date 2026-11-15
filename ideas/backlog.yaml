@@ -177,3 +177,47 @@
     evidence: 2  # all three projects' claims are vendor-reported; no independent measurements located yet
     timeliness: 5
   status: shortlisted
+
+- id: idea-005
+  working_title: "Two Kinds of Generative UI: What A2UI 1.0 and Vercel's UI SDK Tell Us About Trusting Agents With Interfaces"
+  question: >
+    As A2UI 1.0 and libraries like Vercel Labs' UI SDK arrive, what does
+    "generative UI" actually mean, and where should the trust boundary sit
+    between the agent and the interface?
+  hypothesis: >
+    The term covers two different things: agents emitting UI at runtime from a
+    catalog the app registers (A2UI), and agents authoring components at build
+    time from tested behaviors (UI SDK). Both move reliability, accessibility
+    and brand safety into a catalog the developer owns, so the catalog design,
+    not the model, is the decision that matters.
+  why_now: >
+    A2UI 1.0 was announced 2026-11-11 and UI SDK shipped 0.1.0-beta.2 on
+    2026-11-13, in the same week, with different ideas of what an agent
+    contributes to an interface.
+  target_reader: frontend and platform architects, principal engineers, engineering leaders building agent products
+  potential_argument: >
+    Separate runtime from build-time generative UI, compare where each puts
+    the trust boundary (registered components and server-side binding versus
+    tested behaviors and ARIA), say what is stable versus beta in each, and
+    give a checklist for choosing and for what to verify.
+  supporting_signals:
+    - signal-2026-11-15-001
+    - signal-2026-11-15-002
+  counterargument: >
+    The two-kinds distinction is a taxonomy that may not hold up: UI SDK also
+    has agent-connection and WebMCP docs that let agents read and act on
+    components at runtime, and MCP Apps may make both moot. A declarative
+    catalog also limits what an agent can express, and "generative UI" may
+    just be chat with widgets.
+  author_experience_required: >
+    Experience building an agent-facing frontend or generative UI. Not
+    confirmed with the author.
+  originality_score: 3
+  scores:
+    relevance: 5
+    originality: 3  # A2UI explainers are common; the two-kinds framing is the differentiator
+    author_expertise: 3  # unconfirmed
+    reader_value: 4
+    evidence: 3  # vendor-reported; A2UI spec and format not yet read; other libraries not yet checked
+    timeliness: 5
+  status: selected

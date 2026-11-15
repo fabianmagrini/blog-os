@@ -1,0 +1,28 @@
+id: signal-2026-11-15-002
+title: "Vercel Labs UI SDK: headless UI behaviors for agents to build components from"
+date: 2026-11-13  # 0.1.0-beta.2 release date on GitHub; year not shown on the page, footer says 2026
+source:
+  name: vercel-labs/ui (UI SDK), README and docs
+  url: https://github.com/vercel-labs/ui
+  type: repository
+themes: [frontend-architecture, agentic-engineering, emerging-developer-tools, developer-productivity]
+summary: >
+  UI SDK is "a library of behaviors for agents to build the next generation of
+  user interfaces": keyboard navigation, focus, selection, dismissal, popups,
+  drag and drop and the ARIA they need live in `@ui-sdk/core`, with adapters
+  for React, Vue, Svelte, Solid and Web Components, and 55 unstyled React
+  components. The docs say it gives "you and your agents tested behaviors to
+  build on", and ship an agent skill (`npx skills add vercel-labs/ui --skill
+  ui-sdk`) and WebMCP/agent-connection docs. Apache-2.0, vercel-labs, 4.6k
+  stars; every release is a pre-release (0.1.0-beta.2) and the docs say "UI
+  SDK is in beta, so some APIs may still change". The pages read do not
+  mention A2UI, AG-UI, json-render, MCP UI, the Vercel AI SDK or the phrase
+  "generative UI".
+why_it_matters: >
+  It is an agent-oriented UI library of a different kind from a runtime
+  renderer: agents use it to author components, with the accessibility and
+  interaction behavior already tested.
+potential_angles:
+  - "Runtime generative UI (agent emits UI) versus build-time agent-authored UI (agent writes components)."
+related_signals: [signal-2026-11-15-001]
+confidence: medium  # primary repo and docs read, but packages/, AGENTS.md and the agent docs pages were not opened

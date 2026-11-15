@@ -1,0 +1,27 @@
+id: generative-ui-a2ui-ui-sdk
+
+title: >
+  Two Kinds of Generative UI: What A2UI 1.0 and Vercel's UI SDK Tell Us About
+  Trusting Agents With Interfaces
+
+status: thesis
+
+created: 2026-11-15
+
+target_publish_date: 2026-12-15
+
+themes:
+  - frontend-architecture
+  - agentic-engineering
+  - emerging-developer-tools
+
+audience:
+  - architects
+  - principal-engineers
+  - engineering-leaders
+
+word_count_target: 2500
+
+thesis_approved: false
+
+publication_approved: false

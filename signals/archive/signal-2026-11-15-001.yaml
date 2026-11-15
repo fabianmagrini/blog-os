@@ -1,0 +1,31 @@
+id: signal-2026-11-15-001
+title: "A2UI 1.0: Google calls its generative-UI protocol stable"
+date: 2026-11-11  # publication date on the blog post
+source:
+  name: Google Developers Blog (Vishal Motwani, A2UI PM, and the Google A2UI Team)
+  url: https://developers.googleblog.com/en/a2ui-10-build-delightful-fast-reliable-agentic-experiences/
+  type: engineering-blog
+themes: [frontend-architecture, agentic-engineering, emerging-developer-tools]
+summary: >
+  Google announces A2UI 1.0, "the first stable version" of its "open protocol
+  for generative UI": the agent describes what to show and each app draws it
+  with its own native components, placing and configuring "only the
+  components you register". 1.0 adds bidirectional function calls, accessibility
+  support, metadata extensions, renderer libraries (React, Angular, Lit,
+  Flutter, SwiftUI; Jetpack Compose 1.0 "coming soon") and agent SDKs for
+  TypeScript, Dart and Python, plus server-side data binding so "sensitive
+  values never reach the model". Named adopters: Atlassian (Jira), Alation,
+  ByteDance (Lynx renderer), Bloomberg (no detail), and Google's own Gemini
+  products. Caveats on the page itself: Gemini supports A2UI 0.9.1 today,
+  Lynx supports 0.9, and the Compose renderer is at 0.9.1. The page gives no
+  code or JSON sample, no wire format or schema, no threat model, and does not
+  expand the acronym or mention A2A or AG-UI; it says the web and Flutter
+  renderers also work inside MCP Apps.
+why_it_matters: >
+  A named stable protocol from a major vendor, with a catalog-based trust
+  model, is a reference point for how agents should put UI in front of users.
+potential_angles:
+  - "What 'stable' covers when most named renderers and Gemini are still on 0.9.x."
+  - "How A2UI's registered-component model compares with agents writing UI code."
+related_signals: [signal-2026-11-15-002]
+confidence: medium  # primary vendor post, but no spec, format or security detail on the page
