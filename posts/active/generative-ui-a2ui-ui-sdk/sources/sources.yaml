@@ -1,0 +1,195 @@
+- id: S1
+  title: "A2UI 1.0: Build delightful, fast, reliable, agentic experiences"
+  author: Vishal Motwani and the Google A2UI Team
+  publisher: Google Developers Blog
+  date: "2026-11-11"
+  url: https://developers.googleblog.com/en/a2ui-10-build-delightful-fast-reliable-agentic-experiences/
+  source_type: engineering-blog
+  primary_source: true
+  relevance: high
+  credibility: medium
+  claims_supported: ['Claim 2', 'Claim 3', 'Claim 9']
+  notes: >
+    Vendor announcement. No code, JSON, wire format, threat model, acronym expansion, or spec link; mentions MCP Apps only. Caveats on 0.9.x support are on the page itself.
+
+- id: S2
+  title: "vercel-labs/ui (UI SDK)"
+  author: Vercel Labs
+  publisher: GitHub
+  date: "accessed 2026-11-15"
+  url: https://github.com/vercel-labs/ui
+  source_type: repository
+  primary_source: true
+  relevance: high
+  credibility: medium
+  claims_supported: ['Claim 5', 'Claim 6', 'Claim 9']
+  notes: >
+    Apache-2.0 per sidebar (LICENSE not opened). 4.6k stars; all releases pre-release 0.1.0-beta.2 (year not shown; footer 2026). Also read ui-sdk.dev/docs, /docs/components, /docs/core.
+
+- id: S3
+  title: "UI SDK docs: Work with Agents (Connect an Agent, Permissions, WebMCP, Skills, Built for Agents)"
+  author: Vercel Labs
+  publisher: ui-sdk.dev
+  date: "accessed 2026-11-15"
+  url: https://ui-sdk.dev/docs/agents
+  source_type: documentation
+  primary_source: true
+  relevance: high
+  credibility: medium
+  claims_supported: ['Claim 5', 'Claim 6']
+  notes: >
+    Also /agents/build-with-an-agent, /skills, /connect-an-agent, /connect-an-agent/permissions, /connect-an-agent/webmcp. Guide, Reference, History and Undo, Your Own Components not read. Benchmark is vendor-reported.
+
+- id: S4
+  title: "UI SDK ui-sdk skill and AGENTS.md"
+  author: Vercel Labs
+  publisher: GitHub
+  date: "accessed 2026-11-15"
+  url: https://github.com/vercel-labs/ui/blob/main/packages/core/skills/ui-sdk/SKILL.md
+  source_type: repository
+  primary_source: true
+  relevance: medium
+  credibility: medium
+  claims_supported: ['Claim 5']
+  notes: >
+    Also AGENTS.md, skills.sh.json, .agents/ listing. Internal skills' contents not read.
+
+- id: S5
+  title: "A2UI documentation (home, quickstart, concepts, roadmap, MCP Apps guide)"
+  author: A2UI project
+  publisher: a2ui.org
+  date: "accessed 2026-11-15"
+  url: https://a2ui.org/
+  source_type: documentation
+  primary_source: true
+  relevance: high
+  credibility: medium
+  claims_supported: ['Claim 1', 'Claim 2', 'Claim 3', 'Claim 4', 'Claim 7']
+  notes: >
+    Also /concepts/messages, /catalogs, /data-binding, /actions-and-functions, /inference-formats, /guides/a2ui-in-mcp-apps, /roadmap. Fetch capped quote length so examples are fragments; re-copy before publishing. Formal spec and JSON schemas not read.
+
+- id: S6
+  title: "a2ui-project/a2ui repository, evolution guide and releases"
+  author: A2UI project
+  publisher: GitHub
+  date: "accessed 2026-11-15"
+  url: https://github.com/a2ui-project/a2ui
+  source_type: repository
+  primary_source: true
+  relevance: high
+  credibility: medium
+  claims_supported: ['Claim 1', 'Claim 3', 'Claim 4']
+  notes: >
+    Apache-2.0, 17.4k stars, 1,927 commits. Evolution guide: specification/v1_0/docs/evolution_guide.md. Release years not shown. Governance and CONTRIBUTING not read.
+
+- id: S7
+  title: "AG-UI documentation and repository"
+  author: AG-UI protocol
+  publisher: docs.ag-ui.com / GitHub
+  date: "accessed 2026-11-15"
+  url: https://docs.ag-ui.com/introduction
+  source_type: documentation
+  primary_source: true
+  relevance: high
+  credibility: medium
+  claims_supported: ['Claim 7', 'Claim 8']
+  notes: >
+    Also /concepts/generative-ui-specs and github.com/ag-ui-protocol/ag-ui (MIT, 17.4k stars). No version, release list or governance statement retrievable. Its Open-JSON-UI and MCP-UI origins were not independently checked (the MCP blog credits MCP-UI's creators and names Shopify as an adopter).
+
+- id: S8
+  title: "MCP Apps overview, specification, announcement and ext-apps repo"
+  author: Model Context Protocol
+  publisher: modelcontextprotocol.io / GitHub
+  date: "spec Stable 2026-01-26; proposal 2025-11-21"
+  url: https://modelcontextprotocol.io/extensions/apps/overview
+  source_type: standard
+  primary_source: true
+  relevance: high
+  credibility: high
+  claims_supported: ['Claim 7']
+  notes: >
+    Also the spec (specification/2026-01-26/apps.mdx), the 2025-11-21 blog post and github.com/modelcontextprotocol/ext-apps (Apache-2.0 per badge, 3.1k stars). Date the proposal was accepted is not on the pages. Threat-model section seen only via a model summary.
+
+- id: S9
+  title: "vercel-labs/json-render"
+  author: Vercel Labs
+  publisher: GitHub / json-render.dev
+  date: "accessed 2026-11-15"
+  url: https://github.com/vercel-labs/json-render
+  source_type: repository
+  primary_source: true
+  relevance: high
+  credibility: medium
+  claims_supported: ['Claim 7', 'Claim 9']
+  notes: >
+    Apache-2.0, 19.6k stars, CHANGELOG top entry 0.22.0 (undated). README catalog API differs from the homepage example; the Metric example calls an undefined format(). Constraint mechanism not described. No mention of A2UI or AG-UI.
+
+- id: S10
+  title: "Vercel AI SDK documentation: Generative User Interfaces, AI SDK RSC, migration"
+  author: Vercel
+  publisher: ai-sdk.dev
+  date: "accessed 2026-11-15; pages undated"
+  url: https://ai-sdk.dev/docs/ai-sdk-ui/generative-user-interfaces
+  source_type: documentation
+  primary_source: true
+  relevance: high
+  credibility: high
+  claims_supported: ['Claim 7', 'Claim 9']
+  notes: >
+    RSC pages: https://ai-sdk.dev/docs/ai-sdk-rsc/overview and /migrating-to-ui. 7.0 migration guide read only in part. Pages carry no dates; npm version not checked.
+
+- id: S11
+  title: "assistant-ui repository and generative UI docs"
+  author: assistant-ui
+  publisher: GitHub / assistant-ui.com
+  date: "accessed 2026-11-15"
+  url: https://www.assistant-ui.com/docs/tools/generative-ui
+  source_type: documentation
+  primary_source: true
+  relevance: medium
+  credibility: medium
+  claims_supported: ['Claim 7', 'Claim 9']
+  notes: >
+    MIT, 13.2k stars. Release tags and last commit not shown; only version seen is @assistant-ui/generative-ui ^0.0.11 on an install page.
+
+- id: S12
+  title: "tambo-ai/tambo"
+  author: Tambo
+  publisher: GitHub
+  date: "accessed 2026-11-15"
+  url: https://github.com/tambo-ai/tambo
+  source_type: repository
+  primary_source: true
+  relevance: medium
+  credibility: medium
+  claims_supported: ['Claim 7', 'Claim 9']
+  notes: >
+    MIT, 11.2k stars. README banner: Tambo Cloud shutting down (hosted API stops after 2026-10-31, data deleted 2026-11-30). Not checked whether the hosted API actually stopped.
+
+- id: S13
+  title: "What is the Generative UI Spectrum?"
+  author: CopilotKit
+  publisher: copilotkit.com
+  date: "undated"
+  url: https://www.copilotkit.ai/generative-ui-spectrum
+  source_type: analysis
+  primary_source: false
+  relevance: medium
+  credibility: low
+  claims_supported: ['Claim 7', 'Claim 8']
+  notes: >
+    Vendor taxonomy with internal inconsistencies (three pillars, four bands; Open-Ended versus Fully Open). Fortune 500 claim unverified.
+
+- id: S14
+  title: "awesome-generative-ui"
+  author: narrowin (individual)
+  publisher: GitHub
+  date: "accessed 2026-11-15"
+  url: https://github.com/narrowin/awesome-generative-ui
+  source_type: analysis
+  primary_source: false
+  relevance: low
+  credibility: low
+  claims_supported: ['Claim 7', 'Claim 8']
+  notes: >
+    Community list (CC BY 4.0, 152 stars). Used for the constrained/unconstrained split and to find candidate projects; no entry vouched for beyond those verified elsewhere.

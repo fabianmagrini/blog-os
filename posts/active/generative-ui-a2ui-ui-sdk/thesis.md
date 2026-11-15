@@ -1,3 +1,11 @@
+<!--
+Approved at Gate 2 on 2026-11-15 WITH A SCOPE CHANGE requested by the author:
+widen from A2UI 1.0 and UI SDK to a wider field of generative-UI libraries and
+protocols. The thesis claim is unchanged; A2UI and UI SDK stay the two anchor
+cases and other projects are placed on the same runtime / build-time map only
+if verified from primary sources. Libraries to be chosen during research.
+-->
+
 # Thesis
 
 ## Working title
@@ -77,8 +85,9 @@ the decision that matters.]
 ## Novel contribution
 
 Most coverage summarizes A2UI or lists libraries. This separates runtime from
-build-time generative UI, places two newly released projects on that map,
-names the catalog as the control point, and ends with a verification checklist.
+build-time generative UI, places A2UI and UI SDK as anchor cases and other
+verified libraries and protocols on the same map, names the catalog as the
+control point, and ends with a verification checklist.
 
 ## Evidence required
 

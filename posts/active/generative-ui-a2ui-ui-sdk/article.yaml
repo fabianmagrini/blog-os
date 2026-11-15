@@ -4,7 +4,7 @@ title: >
   Two Kinds of Generative UI: What A2UI 1.0 and Vercel's UI SDK Tell Us About
   Trusting Agents With Interfaces
 
-status: thesis
+status: research
 
 created: 2026-11-15
 
@@ -22,6 +22,6 @@ audience:
 
 word_count_target: 2500
 
-thesis_approved: false
+thesis_approved: true
 
 publication_approved: false
