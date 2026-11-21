@@ -21,6 +21,18 @@ All figures were read on 2026-11-15. Star counts are popularity, not quality.
 Several fetches were capped on quote length, so code and JSON samples must be
 re-copied from the live pages before publication.
 
+# Fact-check log: 2026-11-21
+
+Full results: `reviews/fact-check.md`. Resolutions: the "can be updated directly
+by the language model" sentence is on a2ui.org/concepts/data-binding; the AI SDK
+page does not advise validating tool output (example renders `part.output`
+directly, validates input only); `requiresUserActivation` is opt-in (default
+false); the A2UI eval datasets are Transcrypt-encrypted and the default judge is
+Gemini; the A2UI agent SDK 0.11.0 release date is unverified; the MCP Apps
+client matrix cannot confirm ChatGPT, Cursor or Gemini support; the OpenUI
+benchmark is run by Thesys and pins A2UI v0.9 and json-render 0.19 (both out of
+date).
+
 # Review log: 2026-11-21 (critics and falsification test)
 
 - **Reclassification (technical review, critical).** MCP Apps UI is HTML the
