@@ -1,114 +1,121 @@
 <!--
-Revised 2026-11-15 at the author's direction after research. The original
-Gate 2 thesis ("two kinds": emit at runtime vs write at build time, with the
-catalog as the common control point) is in git history (commit dfc72cb). The
-author chose the revised thesis below and counted that as re-approval.
-Reasons for the revision are in research.md ("Thesis impact"): UI SDK also
-lets agents operate a live UI, the catalog is the boundary only for
-constrained emitters, and A2UI's "values never reach the model" claim is only
-partly backed by its docs.
+Revised 2026-11-21 at the author's direction after the critics' review
+(reviews/argument.md, reviews/technical.md). The author chose the "narrow to
+form and authority" option, which counts as re-approval. Previous theses are
+in git history: the "two kinds" thesis (dfc72cb) and the "three jobs, boundary
+not the model" thesis (e47cbfd).
+
+Why: the causal clause "the boundary, not the model, settles reliability" was
+asserted, not argued, and the draft's own evidence showed boundaries limit
+form and authority, not content. A test for content-level controls found one
+partial counterexample (A2UI's offline eval framework), which shaped the
+wording below.
 -->
 
 # Thesis
 
 ## Working title
 
-Three Jobs Called "Generative UI": Where to Draw the Boundary Between Agents
-and Interfaces
+What the Boundary Doesn't Check: Generative UI After A2UI 1.0
 
 ## Question
 
-As A2UI 1.0 and libraries such as Vercel Labs' UI SDK arrive, what does
-"generative UI" mean, and where should the developer draw the boundary between
-an agent and the interface?
+As A2UI 1.0 and libraries such as Vercel Labs' UI SDK arrive, what do the
+controls around an agent and an interface actually constrain, and what do they
+leave open?
 
 ## Thesis
 
-"Generative UI" now names at least three jobs (an agent emitting an interface,
-writing one, or operating one), and in each the thing worth designing is the
-boundary the developer owns, a component catalog for constrained emitters, a
-sandbox for unconstrained ones and a permission layer for agents acting on a
-live page, because that boundary, not the model, is where reliability,
-accessibility and brand safety are settled.
+Every runtime control the field currently offers around an agent and an
+interface (a component catalog, a sandbox, a permission layer) limits what the
+agent can show or do, not whether what it shows is correct. In the documents
+read, whether the content is right is left to offline evaluation and to checks
+the developer writes, so the reliability work that matters sits outside the
+boundary.
 
 ## Why now
 
-Google announced A2UI 1.0 on 2026-11-11 and called it stable; Vercel Labs
-published UI SDK 0.1.0-beta.2 on 2026-11-13. They landed in the same week and
-do different jobs, alongside json-render, assistant-ui, Tambo, the Vercel AI
-SDK, AG-UI and MCP Apps, all described with overlapping vocabulary.
+A2UI 1.0 (announced 2026-11-11) and UI SDK (introduced 2026-11-12) arrived
+together with json-render, assistant-ui, Tambo, the Vercel AI SDK, AG-UI and
+MCP Apps, and each describes some control as the safety story. Readers are
+being asked to rely on those controls before there is independent evidence of
+what they cover.
 
 ## Argument 1
 
-The word covers different jobs. In A2UI the agent "describes what to show" and
-the app draws it from "only the components you register"; json-render,
-assistant-ui, Tambo and the AI SDK's tool UIs are variants of that. MCP Apps
-lets a tool ship HTML into a sandboxed iframe. UI SDK is a library of behaviors
-for agents to write components, and also a bridge (`createAgent`, WebMCP) that
-lets an agent read and act on components already on the page. Emit, write and
-operate are different jobs with different risks.
+There are different controls for different ways an agent meets an interface,
+and each limits form or authority. An agent generating UI from a catalog is
+bounded by the catalog and function permissions (A2UI, json-render,
+assistant-ui, Tambo). An agent triggering a developer-shipped UI is bounded by
+a sandbox and a content security policy (MCP Apps). An agent operating
+components that already exist is bounded by a permission layer (UI SDK's
+bridge). An agent writing the code is bounded by tests and review (UI SDK's
+skill). The split is a supporting map, not the claim, and two of the four cases
+rest on a single vendor's documentation.
 
 ## Argument 2
 
-Each job has its own boundary, and the design effort belongs there. For
-constrained emitters it is the catalog and function permissions (A2UI's
-`allowedCallers`, `requiresUserActivation`; json-render's and Tambo's Zod
-schemas). For unconstrained emitters it is the sandbox, CSP and auditable
-messages (MCP Apps). For an agent operating a live page it is a permission
-layer (UI SDK's `allow`, `data-agent-confirm`, secrets). Each limits form or
-action, not content, and each has documented gaps, so a boundary is something
-to test, not assume.
+The documents say where content is left open. A2UI's pages describe no
+semantic check on what an agent puts into a registered component, and its docs
+say the data model can be updated by the language model. UI SDK's own docs
+state what its `allow` callback covers (actions) and does not (visibility of
+unmarked components). json-render's docs for its experimental composer say
+completion "is not a correctness guarantee" and that registering an action
+does not make it safe to run with arbitrary values. Checks that run on values
+(A2UI's `@checks`, `regex`, `required`) are documented for user input. The
+closest documented content control is A2UI's eval framework, an LLM judge that
+grades payloads against a rubric, and it runs offline on the project's datasets.
 
 ## Argument 3
 
-The field is young and mostly vendor-reported, so claims need checking before
-they are relied on. A2UI 1.0 is a stable protocol while its SDKs are 0.x and
-Gemini, Compose and Lynx are on 0.9.x; its "sensitive values never reach the
-model" is only partly supported by its own docs; UI SDK is a beta; and Tambo's
-hosted cloud is shutting down. The practical output is a checklist for choosing
-and verifying, not a verdict on which project wins.
+Boundary and model are not separable, so "boundary versus model" is a false
+choice. A catalog is also a prompt: json-render's catalog carries
+descriptions the model reads. A boundary caps the worst case (what can appear
+or happen); the model and any content checks set the typical case (whether the
+choice and the values are right). Vendors' claims about what a boundary
+guarantees can also outrun their own documents, as with A2UI's claim that
+"sensitive values never reach the model".
 
 ## Counterargument
 
-The three-jobs split may be taxonomy for its own sake. The lines blur: A2UI can
-run inside MCP Apps and carry generated HTML, json-render has an MCP Apps
-integration, and AG-UI transports several of them. Several vendors already
-publish their own categories. MCP Apps, now a stable MCP extension, may make
-most of this moot. And a catalog or permission layer may be a thin safeguard if
-the boundary is misconfigured.
+This is least privilege restated, and readers already put validation and
+permissions around anything non-deterministic. Absence from the pages read is
+not absence from the field: content checks may exist in places the research did
+not look, such as evaluation tools, host products or private code. And a
+thin boundary might argue for spending effort elsewhere, not for designing the
+boundary better.
 
 ## Response
 
-The overlap is real and the article should say so; the claim is that the jobs
-differ in what is at risk, not that the projects are disjoint. The axis is
-orthogonal to vendor categories (which describe expressiveness), and the
-article places itself against them. The thin-safeguard point is part of the
-thesis: the boundary has to be designed and tested, which is why the article
-ends with what to verify. [AUTHOR OPINION: how strongly you think a boundary,
-not the model, decides reliability.]
+Partly accepted. The contribution is the concrete map of what each documented
+control checks and leaves open, and a falsifiable claim: find a documented
+runtime control that checks content correctness. The scope is deliberately
+"the documents read", and the article says so. Offline evaluation is named as
+the place content is checked, not ignored. Whether effort belongs at the
+boundary or elsewhere is the author's judgment. [AUTHOR OPINION: where you
+would spend the effort, and how strongly you hold the claim.]
 
 ## Novel contribution
 
-Most coverage summarizes A2UI or lists libraries. This separates what the agent
-is doing (emit, write, operate), names the boundary in each, places verified
-projects on that map, shows where claims outrun the docs, and ends with a
-verification checklist.
+Most coverage summarizes A2UI or lists libraries. This states what each
+documented control checks at runtime, where the documents themselves say
+content is left open, how that differs from offline evaluation, and where
+vendor claims outrun documentation, with a claim a reader can try to disprove.
 
 ## Evidence required
 
-- A2UI, UI SDK, AG-UI, MCP Apps, json-render, Vercel AI SDK, assistant-ui and
-  Tambo from primary docs (gathered; see research.md).
+- Primary docs for A2UI, UI SDK, AG-UI, MCP Apps, json-render, the Vercel AI
+  SDK, assistant-ui and Tambo (gathered; see research.md).
+- A search for documented content-level controls (done 2026-11-21): A2UI's
+  eval framework found; no runtime content check on agent output found.
+- Not read: A2UI Agent SDK source, eval/tests, conformance; AI SDK tool-approval
+  and policy pages; offline benchmarks (leads only).
 - Real code from official docs, attributed and re-copied from live pages.
-- Independent evidence on reliability, accessibility or security of generated
-  UI: none located; the article must say so.
-- Open items: A2UI governance and bound-value behavior, how json-render
-  constrains the model, whether Tambo's hosted API stopped.
 
 ## Author input required
 
-- [AUTHOR EXPERIENCE] any first-hand use of these, or a real moment where an
-  agent in front of an interface went wrong; I will not write as if I had.
-- [AUTHOR OPINION] how strongly the boundary, not the model, decides
-  reliability.
-- [AUTHOR EXAMPLE] a product feature you would build with each job, if you
-  want one.
+- [AUTHOR EXPERIENCE] any first-hand use, or a real moment where an interface
+  an agent produced or operated was wrong inside the boundary; I will not write
+  as if I had.
+- [AUTHOR OPINION] where the effort belongs, and the strength of the claim.
+- [AUTHOR EXAMPLE] optional product example.

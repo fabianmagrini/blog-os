@@ -258,3 +258,48 @@
     renderer), v0.22.0 (11-04), v0.21.4 (11-01), v0.21.3 (10-24). CHANGELOG.md
     returned 503 twice and was not read.
 
+- id: S19
+  title: A2UI eval framework (README, DESIGN.md) and roadmap "Evaluate" stage
+  author: A2UI project
+  publisher: GitHub / a2ui.org
+  date: accessed 2026-11-21
+  url: https://github.com/a2ui-project/a2ui/blob/main/eval/DESIGN.md
+  source_type: repository
+  primary_source: true
+  relevance: high
+  credibility: medium
+  claims_supported: ["thesis"]
+  notes: >
+    Also https://a2ui.org/roadmap/ and /concepts/catalogs/. Eval source,
+    tests, datasets (encrypted) and the Agent SDK source were not read.
+    "Tool usage as a judge" is listed as on the roadmap, not shipped.
+
+- id: S20
+  title: json-render, Jev composition docs
+  author: Vercel Labs
+  publisher: json-render.dev
+  date: accessed 2026-11-21
+  url: https://json-render.dev/docs/jev
+  source_type: documentation
+  primary_source: true
+  relevance: medium
+  credibility: medium
+  claims_supported: ["thesis"]
+  notes: Experimental feature. Quotes on correctness and on validating action values.
+
+- id: S21
+  title: Offline generative-UI benchmark leads (search results)
+  author: various (Macaron, Thesys, OpenUI, UIPersonaBench authors)
+  publisher: arXiv / GitHub / openui.com
+  date: accessed 2026-11-21
+  url: https://github.com/thesysdev/Generative-ui-bench
+  source_type: analysis
+  primary_source: false
+  relevance: low
+  credibility: low
+  claims_supported: []
+  notes: >
+    Seen only through search summaries. OpenUI's benchmarks are vendor-run by a
+    competitor of A2UI. Do not cite figures. Possible reading list for a
+    follow-up.
+

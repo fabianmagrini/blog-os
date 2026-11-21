@@ -2,18 +2,17 @@
 
 ## Article
 
-Three Jobs Called "Generative UI": Where to Draw the Boundary Between Agents and Interfaces
+What the Boundary Doesn't Check: Generative UI After A2UI 1.0
 
 ## Thesis
 
-Revised 2026-11-15 and approved by the author (the original two-kinds thesis
-is in git history, commit dfc72cb): "Generative UI" now names at least three
-jobs (an agent emitting an interface, writing one, or operating one), and in
-each the thing worth designing is the boundary the developer owns, a
-component catalog for constrained emitters, a sandbox for unconstrained ones
-and a permission layer for agents acting on a live page, because that
-boundary, not the model, is where reliability, accessibility and brand safety
-are settled.
+Revised 2026-11-21 after the critics' review and approved by the author
+(earlier theses: dfc72cb, e47cbfd). Every runtime control the field currently
+offers around an agent and an interface (a component catalog, a sandbox, a
+permission layer) limits what the agent can show or do, not whether what it
+shows is correct. In the documents read, whether the content is right is left
+to offline evaluation and to checks the developer writes, so the reliability
+work that matters sits outside the boundary.
 
 > **Note:** the "Thesis impact" section at the end records why the thesis was
 > revised; its proposed text is now adopted.
@@ -21,6 +20,56 @@ are settled.
 All figures were read on 2026-11-15. Star counts are popularity, not quality.
 Several fetches were capped on quote length, so code and JSON samples must be
 re-copied from the live pages before publication.
+
+# Review log: 2026-11-21 (critics and falsification test)
+
+- **Reclassification (technical review, critical).** MCP Apps UI is HTML the
+  tool author predeclares as a `ui://` resource; the host may preload it, and
+  the model only decides to call the tool. It is not agent-emitted. The
+  A2UI-embeds-generated-HTML case is the model-supplied one. Web hosts
+  "typically" use a sandboxed iframe; that is not a requirement for every host.
+- **A2UI stability.** The 0.x SDK versions are package versions; the release
+  notes mark entries as implementing v1.0, so a 0.x package does not
+  contradict a stable 1.0 protocol. The 0.9 to 1.0 "cannot be used directly"
+  line is a migration note. The supportable point is consumer lag (Gemini and
+  Compose 0.9.1, Lynx adapting) and that v0.9 catalogs do not carry over.
+- **Attribution conflict.** The critic found "can be updated directly by the
+  language model during generation" on the data-binding page, not the messages
+  page; an earlier fetch attributed it to messages. Resolve at fact-check.
+- **UI SDK corrections (from the review's live reads, to verify at
+  fact-check):** the bridge sees only UI SDK components (snapshot caps at 100);
+  `data-agent-confirm` needs a person only when `allow` does not answer for them
+  (docs warn that an `allow` returning true answers for the person) and without
+  an `allow` the press fails; the 5-minute wait is a default that `timeout`
+  changes; the skill install command is `npx skills@latest add ...`; the "55
+  components" count and the "some APIs may still change" wording could not be
+  confirmed, use the README's "UI SDK is in beta"; AGENTS.md describes testing
+  helpers that check components against WAI-ARIA patterns, so the Write case
+  does include structural accessibility checks.
+- **AI SDK conflict.** The critic says the AI SDK page tells readers to
+  validate output shape before rendering; the falsification read found its
+  example validates tool input only and renders output directly as props. Not
+  resolved; re-read the page.
+- **Falsification test (content-level controls).** Result: partial. A2UI's eval
+  framework (eval/, roadmap "Available today") scores model output on the
+  project's own datasets in three stages: schema and structure; deterministic
+  assertions (required and forbidden components, bindings, actions); and an LLM
+  judge grading against a per-sample rubric. With `--no-judge` the scorer
+  "returns C" for any sample that passed stages 1 and 2, so content is not
+  checked in that mode. "Tool usage as a judge" is roadmap only. `@checks`,
+  `regex`, `required`, `length`, `numeric` and `email` are documented for input
+  components, not agent output. Agent-side functions (for example checking
+  seat inventory) let a developer verify values on the server; that is a
+  developer-written check, not a built-in one. json-render's docs for its
+  experimental composer say "Completion is not a correctness guarantee" and
+  "Registering an action does not make it safe to execute with arbitrary
+  values". AG-UI lists interrupts (human in the loop) as a building block.
+  No runtime content-correctness check on agent output was found.
+- **Search leads (not read beyond summaries, do not cite details):** an arXiv
+  paper on Macaron-A2UI (deterministic checks plus render check plus LLM
+  judges), thesysdev/generative-ui-bench, OpenUI's vendor-run benchmarks (a
+  competitor of A2UI, so a conflict of interest; its json-render figures
+  differ between two pages), UIPersonaBench. All are offline.
 
 ---
 
