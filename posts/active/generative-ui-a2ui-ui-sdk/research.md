@@ -125,7 +125,7 @@ the README expands it [S1, S5, S6]. Ownership: the repo is under a separate GitH
 organization, but CONTRIBUTING.md requires a Google CLA, follows Google's Open
 Source Community Guidelines and links Google-internal information; no
 GOVERNANCE or MAINTAINERS file or foundation is mentioned [S6, S15]. That
-points to a Google-run project, which is an inference, not a stated fact[S1, S6].
+points to a Google-run project, which is an inference, not a stated fact.
 
 ## Assessment
 
@@ -446,8 +446,9 @@ on the migration guide, not re-read; "major version 7" was not re-confirmed)
 the hosted API stops after October 31, 2026 and user data is deleted November
 30, 2026; the banner is still in the future tense and the hosted API was not
 checked; the project stays open source and self-hostable [S12, S17]. AG-UI,
-by contrast, now claims a stable frozen 1.0 specification [S7]. No independent evaluation of reliability or
-accessibility of generated UI was found.
+by contrast, now claims a stable frozen 1.0 specification [S7].
+No independent evaluation of reliability or accessibility of generated UI was
+found.
 
 ## Contrary evidence
 
