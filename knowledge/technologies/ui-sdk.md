@@ -9,3 +9,7 @@ Also a runtime bridge: `createAgent` (`snapshot`/`act`/`query`) and WebMCP
 only. Apache-2.0, 4.6k stars, 0.1.0-beta.2 (all pre-release). Does not mention
 A2UI/AG-UI/"generative UI". Sources: https://github.com/vercel-labs/ui ,
 https://ui-sdk.dev/docs/agents .
+
+Updated 2026-11-21: latest 0.1.0-beta.13 (2026-11-19), still all pre-release;
+6.3k stars, 688 commits. Launch entry on the docs changelog is 2026-11-12.
+Still no mention of A2UI, AG-UI, json-render, MCP Apps or "generative UI".

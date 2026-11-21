@@ -5,7 +5,8 @@
 Three Jobs Called "Generative UI": Where to Draw the Boundary Between Agents
 and Interfaces
 
-Target: about 2,500 words. Built from documentation only; nothing has been run
+Target: about 3,000 words (the section budgets below sum to about 3,050, so the
+target was raised from 2,500). Built from documentation only; nothing has been run
 first-hand. Section references point to research.md claims. Code samples must
 come from official docs, attributed, and be re-copied from live pages.
 
@@ -13,8 +14,8 @@ come from official docs, attributed, and be re-copied from live pages.
 
 ### Hook / Problem  (~200 words)
 
-In one week, 11 to 13 November 2026, Google called A2UI stable and Vercel Labs
-shipped a beta of UI SDK. Both put an agent in front of an interface, and they
+In two days, 11 and 12 November 2026, Google called A2UI stable and Vercel Labs
+introduced UI SDK (still a beta, now at 0.1.0-beta.13). Both put an agent in front of an interface, and they
 do different things. Open on that, not on definitions.
 
 - [AUTHOR EXPERIENCE] a real moment where an agent in front of an interface
@@ -38,7 +39,8 @@ developer owns, not the model.
 Constrained emitters: A2UI (data, not code; flat components; catalog as a
 contract; function permissions), with json-render, assistant-ui, Tambo and the
 AI SDK's tool UIs as variants. Unconstrained: MCP Apps (`ui://` HTML in a
-sandboxed iframe). AG-UI as transport, "not a generative UI specification".
+sandboxed iframe). AG-UI as transport, "not a generative UI specification" (it now claims a
+stable, frozen 1.0 specification).
 (Claims 1, 4, 7)
 
 ### Evidence: Write  (~200 words)
@@ -78,11 +80,14 @@ Boundaries limit form or action, not content. (Claims 4, 6)
 
 ### Where claims outrun the docs  (~250 words)
 
-Three checks the reader can copy: "stable" (A2UI protocol 1.0 versus 0.x SDKs
-and 0.9.x consumers); "never reaches the model" (data binding versus actions and
-`sendDataModel`); "production" (Tambo Cloud shutting down, AI SDK RSC
-experimental). No independent evaluation of reliability, accessibility or
-security was found. (Claims 2, 3, 9)
+Three checks the reader can copy: "stable" (A2UI protocol 1.0, yet every
+released package is 0.x and moved a minor version in a week, no release is
+tagged 1.0, and Gemini, Compose and Lynx are on 0.9.x); "never reaches the
+model" (data binding versus actions, `sendDataModel`, and a data model the
+language model can update during generation); "production" (Tambo Cloud shutting
+down, AI SDK RSC experimental). Contrast with AG-UI's frozen 1.0 transport. No
+independent evaluation of reliability, accessibility or security was found.
+(Claims 2, 3, 9)
 
 ### Counterargument  (~200 words)
 
@@ -118,12 +123,15 @@ prediction.
 
 - Re-copy every code sample from the live pages; A2UI samples came through a
   quote-capped fetch.
-- Re-check versions and dates: A2UI protocol 1.0 and SDK versions, Gemini
-  support, UI SDK 0.1.0-beta.2, json-render 0.22.0, MCP Apps spec date, Tambo's
-  hosted API.
+- Re-check versions and dates (as of 2026-11-21: A2UI SDK 0.12.0 and CLI v0.4.0,
+  UI SDK 0.1.0-beta.13, json-render v0.23.2, AG-UI 1.0, MCP Apps spec Stable
+  2026-01-26, Tambo's hosted API). These move weekly; re-read on the day.
 - Resolve open items: A2UI governance and bound-value behavior, json-render's
   constraint mechanism, and the MCP Apps sandbox permission difference.
-- Re-check star counts at publication time or drop them.
+- Prefer versions and dates to star counts; stars moved 4.6k to 6.3k (UI SDK) in
+  six days. Drop them or date them.
+- Not yet read: A2UI tags page, MCP Apps client matrix, json-render CHANGELOG
+  (503), AI SDK migration guide.
 - Keep the A2UI "never reach the model" claim attributed and qualified.
 
 ## Deviations from default structure

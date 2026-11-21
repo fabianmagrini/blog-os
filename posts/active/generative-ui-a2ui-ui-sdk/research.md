@@ -24,6 +24,76 @@ re-copied from the live pages before publication.
 
 ---
 
+# Update log: re-check on 2026-11-21
+
+Re-read from live pages; "changed" is against the 2026-11-15 readings above.
+Where a fetch could not read something, it says so.
+
+- **A2UI** (re-read): stars 17.7k (was 17.4k); releases on 2026-11-17: Python
+  agent SDK 0.12.0, core 0.7.0, a2a 0.4.0, Swift 0.11.0 and CLI v0.4.0 (marked
+  Latest); on 2026-11-10/11 the 0.11.0 SDK, core 0.6.0 and CLI v0.3.0. No
+  release is titled as a protocol or spec release; no 1.0.x or 1.1 appears,
+  and the tags page was not checked. Roadmap still lists v1.0 as Current and
+  the README only says v1.1 requirements are being collected. The blog post
+  has no visible correction and still says Gemini supports 0.9.1, Compose is
+  0.9.1 and Lynx is adapting to 1.0. Governance: CONTRIBUTING.md requires a
+  Contributor License Agreement (cla.developers.google.com), says the project
+  follows Google's Open Source Community Guidelines and points to a
+  Google-internal link; there is no GOVERNANCE or MAINTAINERS file and no
+  mention of a foundation [S15]. Data binding: still no statement that bound
+  values are hidden from the model, and the messages page says the data model
+  "can be updated directly by the language model during generation" [S5].
+- **UI SDK**: latest is 0.1.0-beta.13 (2026-11-19; beta.12 the same day), up
+  from beta.2 on 2026-11-13; still all pre-release, no 1.0 seen on the first
+  releases page. Stars 6.3k (was 4.6k), 688 commits (was 454). The docs
+  changelog has one entry, "Introducing UI SDK", dated 2026-11-12, so the
+  launch was the 12th and beta.2 the 13th [S16]. Permissions and WebMCP pages
+  read again; same content as summarized (no earlier copies to diff word for
+  word). Still no mention of A2UI, AG-UI, json-render, MCP Apps or
+  "generative UI".
+- **json-render**: latest release v0.23.2 (2026-11-19), after v0.23.1
+  (11-16), v0.23.0 (11-15, adds a Swift/SwiftUI renderer) and v0.22.0 (11-04);
+  stars 19.8k. The CHANGELOG could not be read (503 twice). README Quick Start
+  unchanged (`defineCatalog(schema, ...)`, undefined `format()`); the homepage
+  still shows a different (`defineSchema`) example. An automated GitHub digest
+  found in search called it "in maintenance mode", which the release cadence
+  contradicts; that digest is low credibility and not used [S18].
+- **AG-UI**: new. The repo now says "AG-UI 1.0 is here", with "a stable,
+  frozen specification backed by a JSON Schema" that is backwards compatible
+  with 0.x; stars 20.8k (was 17.4k). Its docs still say "AG-UI is not a
+  generative UI specification". The release tag and date were not readable.
+  Its docs list A2UI, MCP-UI and Open-JSON-UI as generative UI specs while the
+  README lists A2UI, MCP Apps and Open-JSON-UI.
+- **Tambo**: banner unchanged, still in the future tense ("keeps running until
+  October 31, 2026") although that date has passed; the shutdown post is dated
+  2026-10-01 and the team is pivoting to Charming. Whether the hosted API
+  actually stopped is still unverified [S17].
+- **Vercel AI SDK**: the RSC overview now reads "currently experimental. We
+  recommend using AI SDK UI for production" with a migration link. The
+  stronger phrase quoted earlier ("unsuitable for stable production use") is
+  on the migration guide, which was not re-read, so it is not re-confirmed. The
+  "major version 7" claim came from the 7.0 migration guide and was not
+  re-confirmed on the pages read today.
+- **MCP Apps**: spec still Stable 2026-01-26; hosts on the docs page
+  unchanged; ChatGPT is claimed only in the repo README, and the client matrix
+  page was not read. Sandbox question (previously unresolved): the spec's MUST
+  (`allow-scripts` and `allow-same-origin`, on a different origin from the
+  host) applies to the outer sandbox proxy, while A2UI's guide states
+  `sandbox="allow-scripts"` without same-origin for the inner View frame, whose
+  attribute values the spec text read does not specify. They are not a direct
+  contradiction, but it is unverified that A2UI's guide meets the spec for the
+  outer proxy. Part of the spec's security section was read only via a
+  summary.
+- **Search for new developments**: no new primary announcements found. The
+  results were secondary blogs and automated digests; one says A2UI's releases
+  show no tag named 1.0, which the re-check corroborates (see above). Not used
+  as evidence.
+- **Effect on the thesis**: none. The changes strengthen the "young and
+  fast-moving" point (SDK versions moved a minor version in a week) and add
+  AG-UI 1.0 as a stabilizing transport layer.
+
+---
+
 # Claim 1
 
 A2UI is a declarative-data protocol: agents send JSON describing a UI, never
@@ -46,15 +116,16 @@ functions that acts as a contract between an agent and a renderer", with JSON
 Schema per component; the basic catalog has 18 components and 14 functions
 [S5]. Renderers: React, Lit, Angular, Flutter, SwiftUI, Jetpack Compose, with
 community renderers for Lynx, Svelte, Vue and a Go TUI [S5, S6]. Apache-2.0,
-GitHub org `a2ui-project`, 17.4k stars [S6].
+GitHub org `a2ui-project`, 17.7k stars on 2026-11-21 [S6].
 
 ## Contrary evidence
 
 The acronym is not expanded on the announcement, homepage or quickstart; only
-the README expands it [S1, S5, S6]. Who owns or governs the project is not
-established on the pages read: the blog is Google's and the README lists
-Google ADK, but the repo is under a separate organization and governance was
-not read [S1, S6].
+the README expands it [S1, S5, S6]. Ownership: the repo is under a separate GitHub
+organization, but CONTRIBUTING.md requires a Google CLA, follows Google's Open
+Source Community Guidelines and links Google-internal information; no
+GOVERNANCE or MAINTAINERS file or foundation is mentioned [S6, S15]. That
+points to a Google-run project, which is an inference, not a stated fact[S1, S6].
 
 ## Assessment
 
@@ -86,8 +157,11 @@ not handle data such as credit card or account numbers, PII or financial data
 
 The docs do not say bound values are hidden from the model, and do not state a
 mechanism for the README's rule. Button actions send resolved context values
-back to the agent, and `sendDataModel: true` sends the full surface state to
-the agent [S5]. Data an agent injects deterministically from server code need
+back to the agent, `sendDataModel: true` attaches the full surface data model
+to every outbound message to the creating agent (metadata key
+`a2uiRendererDataModel` in 1.0), and the messages page says the data model "can
+be updated directly by the language model during generation" [S5]. Whether
+data sent to the agent's server then reaches the model is not stated. Data an agent injects deterministically from server code need
 not pass through the model, but values that reach the agent via actions or
 `sendDataModel` can.
 
@@ -122,9 +196,11 @@ adapting [S1]. The evolution guide lists breaking changes from 0.9 (renamed
 `@path`/`@call`, a new MIME type, `callFunction` replaced, `theme` and
 `primaryColor` removed, `updateDataModel` `value` now required) and says
 "Catalogs authored for v0.9 cannot be used directly with v1.0 protocol
-runtimes" [S6]. The released SDK packages are at 0.x (Python agent SDK v0.11.0,
-core v0.6.0, CLI v0.3.0, releases dated 10-11 Nov; the page does not show the
-year) [S6]. The README says protocol v1.1 requirements are being collected [S6].
+runtimes" [S6]. The released packages are all 0.x, and moved quickly: on
+2026-11-17 the Python agent SDK was 0.12.0 (0.11.0 a week earlier), core 0.7.0,
+a2a 0.4.0, Swift 0.11.0 and the CLI v0.4.0; no release is titled as a protocol
+release and none is tagged 1.0 on the releases page (the tags page was not
+checked) [S6]. The README says protocol v1.1 requirements are being collected [S6].
 
 ## Assessment
 
@@ -190,9 +266,10 @@ behaviors, defining a primitive, rendering and testing it, with rules such as
 per-component imports, "Name every control", never generate ids, key lists by
 value or id, and not hand-rolling `role=` attributes [S4]. AGENTS.md says
 agents "can now generate those interfaces", meaning code written for
-developers [S4]. Apache-2.0, vercel-labs, 4.6k stars; every release is a
-pre-release (0.1.0-beta.2) and the docs say "UI SDK is in beta, so some APIs
-may still change" [S2].
+developers [S4]. Apache-2.0, vercel-labs, 6.3k stars on 2026-11-21; every
+release is a pre-release (0.1.0-beta.13 on 2026-11-19, up from beta.2 on the
+13th) and the docs say "UI SDK is in beta, so some APIs
+may still change" [S2, S16].
 
 ## Contrary evidence
 
@@ -267,12 +344,13 @@ The field has at least three families, and the projects sort into them.
 ## Supporting evidence
 
 **Constrained emitters (model picks from a catalog)**:
-- json-render (Vercel Labs, Apache-2.0, 19.6k stars): "AI generates interfaces
+- json-render (Vercel Labs, Apache-2.0, 19.8k stars): "AI generates interfaces
   from natural language prompts, constrained to components you define", a
   Zod-typed catalog, a flat `{ root, elements }` spec, many renderers (React,
   Vue, Svelte, Solid, React Native, PDF, email, terminal, Chat SDK and more),
-  an MCP Apps integration, top changelog entry 0.22.0, no project-wide beta
-  label found [S9].
+  an MCP Apps integration, latest release v0.23.2
+(2026-11-19; v0.23.0 added a SwiftUI renderer), no project-wide beta label
+found [S9, S18].
 - assistant-ui (MIT, 13.2k stars): the model emits a flat JSON tree through a
   `present` tool, with 35 default components and Zod-schema custom components;
   `@assistant-ui/generative-ui` is pinned at `^0.0.11` [S11].
@@ -291,8 +369,9 @@ MCP-UI and the OpenAI Apps SDK [S8].
 
 **Transport, not a UI format**: AG-UI says "AG-UI is not a generative UI
 specification"; it is an event-based interaction protocol that "natively
-supports" A2UI, Open-JSON-UI and MCP-UI (MIT, 17.4k stars, origin in
-CopilotKit's partnership with LangChain and CrewAI) [S7].
+supports" A2UI, Open-JSON-UI and MCP-UI (MIT, 20.8k stars on 2026-11-21, origin in
+CopilotKit's partnership with LangChain and CrewAI; its repo now says "AG-UI 1.0 is
+here" with a stable, frozen specification) [S7].
 
 **Agent writes or operates UI**: UI SDK (Claims 5-6).
 
@@ -356,16 +435,18 @@ The field is young and unstable, and vendor-reported. (factual)
 
 ## Supporting evidence
 
-A2UI SDKs at 0.x [S6]; UI SDK 0.1.0-beta.2 [S2]; assistant-ui's generative UI
-package at 0.0.11 [S11]; json-render at 0.22.0 with an README catalog API that
-differs from its homepage example and a Metric component that calls an undefined
-`format()` [S9]. Vercel AI SDK RSC (`streamUI`) is "currently experimental" and
-"unsuitable for stable production use", with the docs recommending a migration
-to tool results rendered via `useChat`; AI SDK is at major version 7 [S10].
-Tambo's README says "Tambo Cloud is shutting down": new signups closed, the
-hosted API stops after October 31, 2026 and user data is deleted November 30,
-2026; the project stays open source and self-hostable (this was not checked
-against the hosted API) [S12]. No independent evaluation of reliability or
+A2UI SDKs at 0.x [S6, S15]; UI SDK 0.1.0-beta.13 [S2, S16];
+assistant-ui's generative UI package at 0.0.11 [S11]; json-render at v0.23.2
+with a README catalog API that differs from its homepage example and a Metric
+component that calls an undefined `format()` [S9, S18]. Vercel AI SDK RSC
+(`streamUI`) is "currently experimental" with a recommendation to use AI SDK UI
+for production (the stronger "unsuitable for stable production use" wording is
+on the migration guide, not re-read; "major version 7" was not re-confirmed)
+[S10]. Tambo's README says "Tambo Cloud is shutting down": new signups closed,
+the hosted API stops after October 31, 2026 and user data is deleted November
+30, 2026; the banner is still in the future tense and the hosted API was not
+checked; the project stays open source and self-hostable [S12, S17]. AG-UI,
+by contrast, now claims a stable frozen 1.0 specification [S7]. No independent evaluation of reliability or
 accessibility of generated UI was found.
 
 ## Contrary evidence
@@ -415,19 +496,25 @@ tool that capped quote length.
 
 # Open questions
 
-- Who owns and governs A2UI? Read CONTRIBUTING and governance files, and the
-  A2UI A2A extension spec (https://a2ui.org/specification/v1.0-a2ui-extension-specification/).
+- (Partly resolved 2026-11-21) A2UI governance: CLA, Google guidelines and an
+  internal link point to a Google-run project; no foundation or GOVERNANCE
+  file. The A2UI A2A extension spec
+  (https://a2ui.org/specification/v1.0-a2ui-extension-specification/) was not
+  read.
 - What mechanism, if any, keeps bound values off the model in A2UI?
 - How does json-render constrain the model (structured output, constrained
   decoding, or prompt and validation)? The pages do not say.
 - Did Tambo's hosted API actually stop on 2026-10-31? Not checked.
 - OpenUI (Thesys), Open-JSON-UI (OpenAI), Hashbrown, mdocUI and others appear
   in an awesome-list but were not verified; leave them out unless checked.
-- MCP Apps' threat model and its `sandbox` permissions: one page's second half
-  was only seen as a model summary, and A2UI's MCP Apps guide describes
-  `sandbox="allow-scripts"` without same-origin while the MCP Apps spec's proxy
-  requires `allow-scripts` and `allow-same-origin` with distinct origins. These
-  may describe different layers; not resolved.
+- (Narrowed 2026-11-21) MCP Apps sandbox: the spec's MUST for the outer proxy
+  (`allow-scripts`, `allow-same-origin`, different origin) and A2UI's inner-frame
+  `sandbox="allow-scripts"` apply to different frames; whether A2UI's guide
+  meets the spec for the outer proxy is unverified, and part of the spec's
+  security section was only seen via a summary.
+- Still unverified: A2UI protocol tags, AG-UI 1.0 release tag, MCP Apps client
+  matrix (ChatGPT, Gemini, Cursor), json-render CHANGELOG, the AI SDK
+  migration guide wording and major version.
 - No independent evidence on reliability, accessibility or security of
   generated UI. None located.
 - No first-hand trial of any of these.

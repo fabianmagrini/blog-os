@@ -193,3 +193,68 @@
   claims_supported: ['Claim 7', 'Claim 8']
   notes: >
     Community list (CC BY 4.0, 152 stars). Used for the constrained/unconstrained split and to find candidate projects; no entry vouched for beyond those verified elsewhere.
+
+- id: S15
+  title: A2UI CONTRIBUTING.md
+  author: A2UI project
+  publisher: GitHub
+  date: accessed 2026-11-21
+  url: https://github.com/a2ui-project/a2ui/blob/main/CONTRIBUTING.md
+  source_type: repository
+  primary_source: true
+  relevance: medium
+  credibility: medium
+  claims_supported: ["Claim 1"]
+  notes: >
+    Requires a Google CLA, follows Google's Open Source Community Guidelines,
+    mentions a Google-internal link. No GOVERNANCE or MAINTAINERS file in the
+    repo root. .github/CODEOWNERS not checked.
+
+- id: S16
+  title: UI SDK releases and docs changelog
+  author: Vercel Labs
+  publisher: GitHub / ui-sdk.dev
+  date: "latest 0.1.0-beta.13, 2026-11-19; docs changelog 2026-11-12"
+  url: https://github.com/vercel-labs/ui/releases
+  source_type: repository
+  primary_source: true
+  relevance: medium
+  credibility: medium
+  claims_supported: ["Claim 5", "Claim 9"]
+  notes: >
+    First releases page only; all marked Pre-release. The docs changelog
+    (https://ui-sdk.dev/docs/core/changelog) has a single entry,
+    "Introducing UI SDK", dated 2026-11-12, and does not list the betas.
+
+- id: S17
+  title: Tambo is shutting down (blog) and Charming
+  author: Tambo
+  publisher: tambo.co / usecharming.com
+  date: "2026-10-01"
+  url: https://tambo.co/blog/posts/tambo-is-shutting-down
+  source_type: engineering-blog
+  primary_source: true
+  relevance: medium
+  credibility: medium
+  claims_supported: ["Claim 9"]
+  notes: >
+    Dated 2026-10-01; repeats the 2026-10-31 hosted-API end date and
+    pivots to Charming. Whether the hosted API actually stopped was not
+    checked.
+
+- id: S18
+  title: json-render releases
+  author: Vercel Labs
+  publisher: GitHub
+  date: "v0.23.2, 2026-11-19"
+  url: https://github.com/vercel-labs/json-render/releases
+  source_type: repository
+  primary_source: true
+  relevance: medium
+  credibility: medium
+  claims_supported: ["Claim 7", "Claim 9"]
+  notes: >
+    Release list: v0.23.2 (11-19), v0.23.1 (11-16), v0.23.0 (11-15, SwiftUI
+    renderer), v0.22.0 (11-04), v0.21.4 (11-01), v0.21.3 (10-24). CHANGELOG.md
+    returned 503 twice and was not read.
+
